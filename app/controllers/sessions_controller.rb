@@ -30,6 +30,7 @@ class SessionsController < ApplicationController
     end 
 
     def destroy 
+        #from post action to logging out 
         session.delete :user_id 
         redirect_to '/login' 
     end 

@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    padding: 14px;
+    font-family: "Arial"; 
+}
+
+h1 {
+    padding: 14px;
+
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    align: center; 
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a { 
+    float: left; 
+    color: #3446eb; 
+    display: block;
+    font-family: "Arial"; 
+    font-weight: bold;
+    padding: 14px 14px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    text-decoration: underline;
+    color: #ff4545; 
+    font-weight: bold;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    text-decoration: underline;
+    color: #ff4545;
+    font-weight: bold;
+  }

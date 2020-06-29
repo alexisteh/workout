@@ -1,5 +1,10 @@
-Home page 
-Welcome <%=@user.name%> !! 
+<div class="topnav">
+  <a class="active" href="/home">Home</a>
+  <a href="/profile">News</a> 
+  <a href="/trainings/new">New Training</a>
+  <a href="/logout">Log Out</a>
+</div> 
+
+<h1> Welcome to Workout, <%=@user.name%> !</h1> 
 
 
-<%=link_to "Log Out", '/logout'%>

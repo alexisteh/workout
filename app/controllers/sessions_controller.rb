@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+    skip_before_action :require_login, only: [:new, :create]
+
     def home 
         #home page of application 
         if session[:user_id] == nil 

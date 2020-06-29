@@ -1,0 +1,28 @@
+<h1>Create a new training routine! </h1>
+
+<%=form_for @training, url: '/trainings', method: :post do |f| %>
+
+    <div class="container"> 
+        <div class="box-cell box1">
+        <%=f.label :name %> <br/>
+        <%=f.text_field :name, placeholder: "routine name" %>
+        </div>
+        <div class="box-cell box2">
+        <%=f.label :description %> <br/>
+        <%=f.text_field :description, size: 75, placeholder: "short description" %>
+        </div>
+    </div>
+
+    <br/>
+    <br/>
+    <div class="excontainer">
+    <%=f.collection_check_boxes :exercise_ids, @exercises, :id, :display do |e| %>
+        <div class="exercisechecks"> 
+            <%= e.check_box %> <%= e.label { e.text } %> <br/>
+        </div>
+    <%end%>
+    </div> 
+    <br/> <br/>
+    <%=f.submit%> 
+
+<%end%>

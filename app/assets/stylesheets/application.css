@@ -21,7 +21,28 @@ body {
 
 h1 {
     padding: 14px;
+}
 
+.containter {
+  display: table-row; 
+}
+
+.box-cell {
+    display: table-cell;
+    width: 200px; 
+    padding: 10px;  
+}
+
+.excontainer {
+  padding: 14px;
+    display: inline-grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+
+.exercisechecks:hover {
+    background-color: lightblue;
 }
 
 /* Add a black background color to the top navigation */

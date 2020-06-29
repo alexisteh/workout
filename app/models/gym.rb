@@ -1,4 +1,4 @@
 class Gym < ApplicationRecord
-    has_many :sessions 
-    has_many :users, through: :sessions 
+    has_many :seshes 
+    has_many :users, through: :seshes 
 end

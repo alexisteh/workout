@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_06_29_155521) do
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.string "category"
-    t.integer "reps"
+    t.integer "reps" 
     t.integer "sets"
     t.integer "duration"
   end
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_06_29_155521) do
     t.string "list_of_equipment"
   end
 
-  create_table "sessions", force: :cascade do |t|
+  create_table "seshes", force: :cascade do |t|
     t.datetime "time"
     t.string "goals"
     t.integer "user_id"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_06_29_155521) do
   end
 
   create_table "sessiontrainings", force: :cascade do |t|
-    t.integer "session_id"
+    t.integer "sesh_id"
     t.integer "training_id"
   end
 

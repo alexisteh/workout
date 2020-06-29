@@ -1,0 +1,3 @@
+class SeshesController < ApplicationController
+
+end 

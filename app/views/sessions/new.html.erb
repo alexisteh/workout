@@ -1,0 +1,18 @@
+<h1>Log into your workout account!</h1>
+
+<% if flash[:message] %>
+    <p style="color: red"><%=flash[:message] %></p> 
+<%end%>
+
+<%=form_for @user, url: '/login', method: :post do |f| %>
+    <%=f.label :name %>
+    <%=f.text_field :name %>
+    <br/>
+    <%=f.label :password %>
+    <%=f.text_field :password %> 
+
+    <%=f.submit "Log In" %> 
+
+<%end%>
+
+<%= link_to 'Sign Up', '/users/new' %>

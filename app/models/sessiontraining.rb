@@ -1,4 +1,4 @@
 class Sessiontraining < ApplicationRecord
-    belongs_to :session
+    belongs_to :sesh
     belongs_to :training  
 end

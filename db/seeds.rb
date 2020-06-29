@@ -5,7 +5,7 @@ require 'date'
 # require_all 'app/models'
 User.destroy_all 
 Gym.destroy_all 
-Session.destroy_all 
+Sesh.destroy_all 
 Training.destroy_all 
 
 
@@ -19,9 +19,9 @@ gym_1 = Gym.create(name:"Payne Whitney Gym", address: "70 Tower Pkwy, create Hav
 gym_2 = Gym.create(name:"Payne Whitney Gym", address: "189 Elm St, create Haven, CT 06511", list_of_equipment: "Yoga ball, Dumbells, Punching bag")
 gym_3 = Gym.create(name:"Dorm room", address: "Yale Old Campus", list_of_equipment: "Yoga mat, Dumbells")
 
-session_1 = Session.create(time: DateTime.now, goals:"Get a 6 pack in 6 hours!!", user_id: usr_1.id, gym_id: gym_1.id)
-session_2 = Session.create(time: DateTime.now, goals:"Get Shredded!!", user_id: usr_2.id, gym_id: gym_2.id)
-session_3 = Session.create(time: DateTime.now, goals:"Stretch and loosen body!", user_id: usr_3.id, gym_id: gym_3.id)
+session_1 = Sesh.create(time: DateTime.now, goals:"Get a 6 pack in 6 hours!!", user_id: usr_1.id, gym_id: gym_1.id)
+session_2 = Sesh.create(time: DateTime.now, goals:"Get Shredded!!", user_id: usr_2.id, gym_id: gym_2.id)
+session_3 = Sesh.create(time: DateTime.now, goals:"Stretch and loosen body!", user_id: usr_3.id, gym_id: gym_3.id)
 
 
 training_1 = Training.create(name: "Gentle Cardio", description: "A regular cardio exercise for hearth fitness") 
@@ -29,9 +29,9 @@ training_2 = Training.create(name: "Leg Day", description: "High-intensity leg t
 training_3 = Training.create(name: "Mindful Relaxation", description: "Low-intensity relaxation") 
 
 
-ses_wkt_1 = Sessiontraining.create(session_id: session_1.id, training_id: training_1.id)
-ses_wkt_2 = Sessiontraining.create(session_id: session_2.id, training_id:training_2.id)
-ses_wkt_3 = Sessiontraining.create(session_id: session_3.id, training_id:training_3.id)
+ses_wkt_1 = Sessiontraining.create(sesh_id: session_1.id, training_id: training_1.id)
+ses_wkt_2 = Sessiontraining.create(sesh_id: session_2.id, training_id:training_2.id)
+ses_wkt_3 = Sessiontraining.create(sesh_id: session_3.id, training_id:training_3.id)
 
 exercise_1 = Exercise.create(name: "situps", category: "abdominal", reps: 30, sets: 3, duration: 60) 
 exercise_2 = Exercise.create(name: "yoga", category: "mindfulness", sets: 1, duration: 300)  

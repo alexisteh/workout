@@ -1,4 +1,4 @@
-class Session < ApplicationRecord
+class Sesh < ApplicationRecord
     belongs_to :user 
     belongs_to :gym 
     has_many :sessiontrainings 

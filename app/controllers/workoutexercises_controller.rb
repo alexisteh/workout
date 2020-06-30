@@ -18,7 +18,7 @@ class WorkoutexercisesController < ActionController::Base
         workoutexercise.update(workoutexercise_params)  
         
         if workoutexercise.valid? 
-            byebug
+            # byebug
             workoutexercise.save 
             redirect_to '/workouts'
         else 

@@ -1,7 +1,7 @@
 <div class="topnav">
   <a class="active" href="/home">Home</a>
-  <a href="/seshes/new">Schedule New Workout Session</a> 
-  <a href="/trainings/new">Add New Training Routine</a>
+  <a href="/seshes/new">Schedule New Session</a> 
+  <a href="/workouts/new">Add a New Workout group</a>
   <a href="/logout">Log Out</a>
 </div> 
 
@@ -17,7 +17,7 @@ Upcoming sessions:
 <ul>
   <%@user.future_seshes.each do |sesh| %>
     <li> <%=sesh.time.strftime("%B %d %Y at %H:%M")%>, goal - <%=sesh.goals%><br/>
-    Workout routines: <%=sesh.trainings_list%> 
+    Workout routines: <%=sesh.workouts_list%> 
     </li>
   <%end%>
 </ul>
@@ -28,7 +28,7 @@ Past sessions:
 <ul>
   <%@user.past_seshes.each do |sesh| %>
     <li> <%=sesh.time.strftime("%B %d %Y at %H:%M")%>, goal - <%=sesh.goals%><br/>
-    Workout routines: <%=sesh.trainings_list%> 
+    Workout routines: <%=sesh.workouts_list%> 
     </li>
   <%end%>
 </ul>

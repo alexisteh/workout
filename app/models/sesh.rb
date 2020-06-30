@@ -1,29 +1,29 @@
 class Sesh < ApplicationRecord
     belongs_to :user 
     belongs_to :gym 
-    has_many :sessiontrainings 
-    has_many :trainings, through: :sessiontrainings 
+    has_many :sessionworkouts 
+    has_many :workouts, through: :sessionworkouts 
 
     validates :time, presence: true 
     validates :goals, presence: true 
-    validate :has_a_training? 
+    validate :has_a_workout? 
     validate :time_in_future? 
 
-    def trainings_list
-        self.trainings.map(&:name).join(", ")  
+    def workouts_list
+        self.workouts.map(&:name).join(", ")  
     end 
 
-    def training_ids=(ids_array)
+    def workout_ids=(ids_array)
         ids_array.each do |id|
             unless id == nil || id == ""
-                training = Training.find(id) 
-                self.trainings << training 
+                workout = Workout.find(id) 
+                self.workouts << workout 
             end 
         end 
     end 
 
-    def has_a_training? 
-        if self.trainings.length == 0 
+    def has_a_workout? 
+        if self.workouts.length == 0 
             errors.add(:tranings, "not entered!")
         end 
     end 

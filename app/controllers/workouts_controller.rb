@@ -20,6 +20,12 @@ class WorkoutsController < ApplicationController
         @workouts = Workout.all 
     end 
 
+    def delete 
+        @workout = Workout.find(params[:id]) 
+        @workout.destroy 
+        redirect_to '/workouts' 
+    end 
+
 
     private 
     def workout_params

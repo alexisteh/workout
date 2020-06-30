@@ -24,5 +24,7 @@ Rails.application.routes.draw do
   get '/gyms/delete', to: 'gyms#delete', as: 'delete_gym'
 
   get '/workouts', to: 'workouts#show' 
+  get '/workouts/delete', to: 'workouts#delete', as: 'delete_workout'
+
 
 end 

@@ -9,15 +9,15 @@ Sesh.destroy_all
 Training.destroy_all 
 
 
-usr_1 = User.create(name:"Jeremy", password:"abcfg-1", email:"jeremy123@gmail.com") 
+usr_1 = User.create(name:"Jeremy", password:"123", email:"jeremy123@gmail.com") 
 usr_2 = User.create(name:"Garreth", password:"2423csd-f", email:"gdog123@gmail.com")
 usr_3 = User.create(name:"Ari", password:"]sdf9", email:"ririme@gmail.com")
 usr_4 = User.create(name:"Brody", password:"asfds-3", email:"brodykon@gmail.com")
 usr_5 = User.create(name:"Tai", password:"23adsfs", email:"taimi@gmail.com")
 
-gym_1 = Gym.create(name:"Payne Whitney Gym", address: "70 Tower Pkwy, create Haven, CT 06511", list_of_equipment: "Dumbells, Excercise bike, treadmill")
-gym_2 = Gym.create(name:"Payne Whitney Gym", address: "189 Elm St, create Haven, CT 06511", list_of_equipment: "Yoga ball, Dumbells, Punching bag")
-gym_3 = Gym.create(name:"Dorm room", address: "Yale Old Campus", list_of_equipment: "Yoga mat, Dumbells")
+gym_1 = Gym.create(name:"Payne Whitney Gym", address: "70 Tower Pkwy, create Haven, CT 06511", list_of_equipment: "Dumbells, Excercise bike, treadmill", user_id: usr_1.id)
+gym_2 = Gym.create(name:"Payne Whitney Gym", address: "189 Elm St, create Haven, CT 06511", list_of_equipment: "Yoga ball, Dumbells, Punching bag", user_id: usr_1.id)
+gym_3 = Gym.create(name:"Dorm room", address: "Yale Old Campus", list_of_equipment: "Yoga mat, Dumbells", user_id: usr_1.id)
 
 session_1 = Sesh.create(time: DateTime.now, goals:"Get a 6 pack in 6 hours!!", user_id: usr_1.id, gym_id: gym_1.id)
 session_2 = Sesh.create(time: DateTime.now, goals:"Get Shredded!!", user_id: usr_2.id, gym_id: gym_2.id)

@@ -1,4 +1,7 @@
 class Gym < ApplicationRecord
     has_many :seshes 
-    has_many :users, through: :seshes 
+    belongs_to :user 
+
+    validates :name, presence: true 
+    validates :address, presence: true 
 end

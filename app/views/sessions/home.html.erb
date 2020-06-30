@@ -1,10 +1,73 @@
 <div class="topnav">
   <a class="active" href="/home">Home</a>
-  <a href="/profile">News</a> 
-  <a href="/trainings/new">New Training</a>
+  <a href="/seshes/new">Schedule New Workout Session</a> 
+  <a href="/trainings/new">Add New Training Routine</a>
   <a href="/logout">Log Out</a>
 </div> 
 
-<h1> Welcome to Workout, <%=@user.name%> !</h1> 
+<div class="hmrow"> 
+
+<div class="hmcolumn"> 
+
+<h1 style="text-align:center"> Welcome to Workout, <%=@user.name%> !</h1> 
 
 
+<% if @user.future_seshes %>
+Upcoming sessions: 
+<ul>
+  <%@user.future_seshes.each do |sesh| %>
+    <li> <%=sesh.time.strftime("%B %d %Y at %H:%M")%>, goal - <%=sesh.goals%><br/>
+    Workout routines: <%=sesh.trainings_list%> 
+    </li>
+  <%end%>
+</ul>
+<%end%>
+
+<% if @user.past_seshes %>
+Past sessions: 
+<ul>
+  <%@user.past_seshes.each do |sesh| %>
+    <li> <%=sesh.time.strftime("%B %d %Y at %H:%M")%>, goal - <%=sesh.goals%><br/>
+    Workout routines: <%=sesh.trainings_list%> 
+    </li>
+  <%end%>
+</ul>
+<%end%>
+
+</div>
+
+<div class="hmcolumn"> 
+<br/><br/><br/><br/><br/><br/>
+
+Your registered gyms: 
+<ul> 
+  <%@user.gyms.each do |gym| %> 
+    <li> <span style="color: green"><%=gym.name%></span> at <%=gym.address%> <br/> 
+    Equipment: <span style="color: orange"><%=gym.list_of_equipment%></span>
+    </li> 
+  <%end%>
+</ul> 
+<br/>
+Register a new gym:
+<br/> 
+<% if flash[:message] %>
+<ul>
+    <%flash[:message].each do |message| %>
+    <li style="color: red"><%=message%></li> 
+    <%end%>
+</ul>
+<%end%> 
+
+<%=form_for @gym, url: '/gyms', method: :post do |f| %>
+  <%=f.label :name%> 
+  <%=f.text_field :name%> <br/>
+  <%=f.label :address%> 
+  <%=f.text_field :address%> <br/>
+  <%=f.label :list_of_equipment%> 
+  <%=f.text_field :list_of_equipment%> <br/>
+  <%=f.submit%>
+<%end%>
+
+</div> 
+
+</div>

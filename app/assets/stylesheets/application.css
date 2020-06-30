@@ -14,26 +14,37 @@
  *= require_self
  */
 
+ /* styling for all text */
 body {
     padding: 14px;
     font-family: "Arial"; 
 }
-
 h1 {
     padding: 14px;
 }
 
-.containter {
-  display: table-row; 
+ /* styling for home page */
+
+.hmrow {
+  display: flex; 
 }
 
-.box-cell {
+.hmcolumn {
+  flex: 50%;
+}
+
+ /* styling for new trainings, name and desc  */
+.nwtrcontainter {
+  display: table-row; 
+}
+.nwtrbox-cell {
     display: table-cell;
     width: 200px; 
     padding: 10px;  
 }
 
-.excontainer {
+ /* styling for new trainings, exercises  */
+.nwtrexcontainer {
   padding: 14px;
     display: inline-grid;
     grid-template-columns: 200px 200px 200px 200px;
@@ -41,38 +52,30 @@ h1 {
     grid-row-gap: 10px;
   }
 
-.exercisechecks:hover {
+.nwtrexchecks:hover {
     background-color: lightblue;
 }
 
-/* Add a black background color to the top navigation */
+ /* styling for top navigation bar  */
 .topnav {
-    align: center; 
     overflow: hidden;
   }
-  
-  /* Style the links inside the navigation bar */
-  .topnav a { 
-    float: left; 
-    color: #3446eb; 
-    display: block;
-    font-family: "Arial"; 
-    font-weight: bold;
-    padding: 14px 14px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    text-decoration: underline;
-    color: #ff4545; 
-    font-weight: bold;
-  }
-  
-  /* Add a color to the active/current link */
-  .topnav a.active {
-    text-decoration: underline;
-    color: #ff4545;
-    font-weight: bold;
-  }
+.topnav a { 
+  float: left; 
+  color: #3446eb; 
+  font-family: "Arial"; 
+  font-weight: bold; 
+  padding: 14px 14px;
+  text-decoration: none;
+  font-size: 17px;
+} 
+.topnav a:hover {
+  text-decoration: underline;
+  color: #ff4545; 
+  font-weight: bold;
+} 
+.topnav a.active {
+  text-decoration: underline;
+  color: #ff4545;
+  font-weight: bold;
+}

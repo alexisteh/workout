@@ -7,5 +7,17 @@ class User < ApplicationRecord
     validates :email, uniqueness: true 
 
     has_many :seshes  
-    has_many :gyms, through: :seshes  
+    has_many :gyms   
+
+    def past_seshes 
+        all = self.seshes.select{|sesh| sesh.time < Time.now}
+        return nil if all == [] 
+        return all.sort_by{|sesh| sesh.time} 
+    end 
+
+    def future_seshes 
+        all = self.seshes.select{|sesh| sesh.time >= Time.now}
+        return nil if all == [] 
+        return all.sort_by{|sesh| sesh.time} 
+    end 
 end 

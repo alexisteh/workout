@@ -1,9 +1,10 @@
-class Training < ApplicationRecord
-    has_many :sessiontrainings 
-    has_many :seshes, through: :sessiontrainings  
+class Workout < ApplicationRecord
 
-    has_many :trainingexercises 
-    has_many :exercises, through: :trainingexercises
+    has_many :sessionworkouts 
+    has_many :seshes, through: :sessionworkouts  
+
+    has_many :workoutexercises 
+    has_many :exercises, through: :workoutexercises
     
     validates :name, presence: :true 
     validate :has_exercises? 

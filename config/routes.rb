@@ -26,9 +26,9 @@ Rails.application.routes.draw do
   get '/workouts', to: 'workouts#show' 
   get '/workouts/delete', to: 'workouts#delete', as: 'delete_workout'
 
-  get '/workoutexercises/:id', to: 'workoutexercises#show' 
-  get '/workoutexercises/:id/edit', to: 'workoutexercises#edit'
-  # patch '/workoutexercises', to: 'workoutexercises#update' 
+  get '/workoutexercises/edit', to: 'workoutexercises#edit', as: 'edit_exercise'
+  get '/workoutexercises/:id', to: 'workoutexercises#show'
+  patch '/workoutexercises', to: 'workoutexercises#update' 
   
   
 end 

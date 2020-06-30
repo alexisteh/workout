@@ -1,0 +1,26 @@
+<h1> Edit exercise </h1>
+<% if flash[:message] %>
+<ul>
+    <%flash[:message].each do |message| %>
+    <li style="color: red"><%=message%></li> 
+    <%end%>
+</ul> 
+<%end%> 
+<%=form_for @workoutexercise, url: '/workoutexercises', method: :patch do |f| %>
+    <%= f.hidden_field :id , value: @workoutexercise.id %> 
+  <table> 
+  <tr>
+  <td> <%=f.label :reps%> </td>
+  <td> <%=f.text_field :reps%> </td> 
+  </tr>
+  <tr>
+  <td> <%=f.label :sets%> </td> 
+  <td> <%=f.text_field :sets%> </td> 
+  </tr>
+  <tr>
+  <td> <%=f.label :duration%> </td> 
+  <td> <%=f.text_field :duration%> </td> 
+  </tr>
+  <td> </td> <td> <%=f.submit%> </td> 
+  <table>
+<%end%>

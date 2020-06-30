@@ -2,7 +2,7 @@
 
 <ul>
 <%@workoutexercises.each do |workout_e|%>
-    <li> <%= link_to workout_e.exercise.name, "/workoutexecises/#{workout_e.id}}/edit"%> <br/> 
+    <li> <%= link_to workout_e.exercise.name, edit_exercise_path(id: workout_e.id) %> <br/> 
     Reps: <%= workout_e.reps%> 
     <br>
     Sets: <%= workout_e.sets%> 

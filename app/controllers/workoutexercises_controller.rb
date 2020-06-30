@@ -8,26 +8,26 @@ class WorkoutexercisesController < ActionController::Base
     end
 
     def edit 
+        # byebug
         @workoutexercise = Workoutexercise.find(params[:id]) 
     end 
 
     def update 
-        @workoutexercise = Workoutexercise.find(params[:workoutexercise][:id])  
-        @workoutexercise.update(workoutexercise_params)  
-        if @workoutexercise.valid? 
-            @workoutexercise.save 
+        # byebug
+        workoutexercise = Workoutexercise.find(params[:workoutexercise][:id])  
+        workoutexercise.update(workoutexercise_params)  
+        
+        if workoutexercise.valid? 
+            byebug
+            workoutexercise.save 
             redirect_to '/workouts'
         else 
-            flash[:message] = @workoutexercise.errors.full_messages 
+            flash[:message] = workoutexercise.errors.full_messages 
             redirect_to edit_workoutexercise_path(id: params[:id]) 
         end  
     end 
 
-    def delete 
-        @workoutexercise = workoutexercise.find(params[:id]) 
-        @workoutexercise.destroy 
-        redirect_to '/home'
-    end 
+    private
 
     def workoutexercise_params 
         params.require(:workoutexercise).permit(:reps, :sets, :duration)

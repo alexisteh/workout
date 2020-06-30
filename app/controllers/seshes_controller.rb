@@ -7,11 +7,11 @@ class SeshesController < ApplicationController
     end
 
     def create
-        # byebug
+        
+        # TODO: Convert time input into day time format
         sesh = Sesh.new(sesh_params)
-
-        # TODO: Fix time not being aved into new sesh
-        # TODO: Assign this sesh to the current user
+        byebug
+        # TODO: Assign this sesh to the current logged in user
         if sesh.valid? 
             sesh.save 
             redirect_to '/home'

@@ -14,12 +14,12 @@
 
     <div class="container"> 
         <div class="box-cell box1">
-        <%=f.label :time %> <br/>
-        <%=f.text_field :time, placeholder: "session date" %>
-        </div>
+                <!-- Figure out how to get date time input-->
+            <%= f.date_field :time, as: :date %>
+            </div>
         <div class="box-cell box2">
-        <%=f.label :goals %> <br/>
-        <%=f.text_field :goals, size: 75, placeholder: "goals" %>
+            <%=f.label :goals %> <br/>
+            <%=f.text_field :goals, size: 75, placeholder: "goals" %>
         </div>
     </div>
 
@@ -30,6 +30,8 @@
 
 
     <br>
+
+    <!-- TODO: Make output prettier -->
     <div class="workout_container">
     <%=f.collection_check_boxes :workout_ids, @workouts, :id, :display do |e| %>
         <div class="workoutchecks"> 

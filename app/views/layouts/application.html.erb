@@ -11,6 +11,30 @@
 
   <body>
 
+  <div class="topnav"> 
+    <%if @site == "home"%>  <a href="/home" class="active" >Home</a> 
+    <%else%> <a href="/home">Home</a>
+    <%end%>
+
+   <%if @site == "new_sesh"%>  <a href="/seshes/new" class="active" >Schedule New Session</a> 
+    <%else%> <a href="/seshes/new">Schedule New Session</a> 
+    <%end%>
+
+    <%if @site == "new_workout"%>  <a href="/workouts/new" class="active" >Add New Workout</a> 
+    <%else%> <a href="/workouts/new">Add New Workout</a>
+    <%end%>
+
+    <%if @site == "manage_workouts"%>  <a href='/workouts' class="active">Manage Workouts </a> 
+    <%else%> <a href='/workouts'>Manage Workouts </a>
+    <%end%>
+
+    <%if @site == "manage_exercises"%>   <a href='/exercises' class="active" >Manage Exercises</a>
+    <%else%>  <a href='/exercises'>Manage Exercises</a>
+    <%end%>
+
+    <a href="/logout">Log Out</a> 
+  </div> 
+
     <%= yield %>
   </body>
 </html>

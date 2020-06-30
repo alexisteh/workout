@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
         end 
         @user = User.find(session[:user_id]) 
         @gym = Gym.new 
+        @site="home" 
     end 
 
     def new 

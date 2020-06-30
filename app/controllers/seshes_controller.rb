@@ -4,6 +4,7 @@ class SeshesController < ApplicationController
         @sesh = Sesh.new  
         @gyms = Gym.all 
         @workouts = Workout.applicable_workouts(session[:user_id])  
+        @site="new_sesh" 
     end 
 
     def create 

@@ -3,6 +3,7 @@ class WorkoutsController < ApplicationController
     def new 
         @workout = Workout.new 
         @exercises = Exercise.all
+        @site = "new_workout"
     end 
 
     def create 
@@ -20,6 +21,7 @@ class WorkoutsController < ApplicationController
     end 
 
     def index
+        @site="manage_workouts"
         @pub_workouts = Workout.select{|workout| workout.user_id == User.first.id} 
         @priv_workouts = Workout.select{|workout| workout.user_id == session[:user_id] }
     end 

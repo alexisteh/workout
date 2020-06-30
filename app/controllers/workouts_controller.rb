@@ -6,10 +6,11 @@ class WorkoutsController < ApplicationController
     end 
 
     def create 
-        @workout = Workout.new(workout_params)
+        @workout = Workout.new(workout_someparams)
+        @workout.update(user_id: session[:user_id]) 
         if @workout.valid? 
             @workout.save 
-            @workout.make_joiner(workoutexercise_params)
+            @workout.make_joiner(workoutexercise_params) 
             @workout.save 
             redirect_to '/workouts' 
         else 
@@ -18,8 +19,9 @@ class WorkoutsController < ApplicationController
         end 
     end 
 
-    def show 
-        @workouts = Workout.all 
+    def index
+        @pub_workouts = Workout.select{|workout| workout.user_id == User.first.id} 
+        @priv_workouts = Workout.select{|workout| workout.user_id == session[:user_id] }
     end 
 
     def delete 
@@ -31,7 +33,7 @@ class WorkoutsController < ApplicationController
 
     private 
 
-    def workout_params
+    def workout_someparams
         params.require(:workout).permit(:name, :description)  
     end 
 

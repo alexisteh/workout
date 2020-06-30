@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2020_06_29_155521) do
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.string "category"
+    t.integer "user_id"
   end
 
   create_table "gyms", force: :cascade do |t|
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_06_29_155521) do
   create_table "workouts", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.integer "user_id"
   end
 
 end

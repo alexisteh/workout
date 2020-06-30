@@ -8,6 +8,9 @@ class WorkoutexercisesController < ActionController::Base
     end
 
     def edit 
+        if Workoutexercise.find(params[:id]).workout.user_id == User.first.id 
+            redirect_to '/home' 
+        end 
         # byebug
         @workoutexercise = Workoutexercise.find(params[:id]) 
     end 
@@ -18,9 +21,8 @@ class WorkoutexercisesController < ActionController::Base
         workoutexercise.update(workoutexercise_params)  
         
         if workoutexercise.valid? 
-            byebug
             workoutexercise.save 
-            redirect_to '/workouts'
+            redirect_to "/workoutexercises/#{workoutexercise.workout.id}" 
         else 
             flash[:message] = workoutexercise.errors.full_messages 
             redirect_to edit_workoutexercise_path(id: params[:id]) 

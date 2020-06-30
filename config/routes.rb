@@ -23,13 +23,15 @@ Rails.application.routes.draw do
   patch '/gyms', to: 'gyms#update'
   get '/gyms/delete', to: 'gyms#delete', as: 'delete_gym'
 
-  get '/workouts', to: 'workouts#show' 
+  get '/workouts', to: 'workouts#index' 
   get '/workouts/delete', to: 'workouts#delete', as: 'delete_workout'
-
+ 
   get '/workoutexercises/edit', to: 'workoutexercises#edit', as: 'edit_exercise'
   get '/workoutexercises/:id', to: 'workoutexercises#show'
   patch '/workoutexercises', to: 'workoutexercises#update' 
   
+  get '/exercises', to: 'exercises#index' 
+
 end 
 
 # TODO: Tests how to access list of workout exercises

@@ -20,16 +20,51 @@
         <%=f.text_field :description, size: 75, placeholder: "short description" %>
         </div>
     </div>
+    <br/>
+    <br/> 
 
-    <br/>
-    <br/>
-    <div class="nwtrexcontainer">
-    <%=f.collection_check_boxes :exercise_ids, @exercises, :id, :display do |e| %>
-        <div class="nwtrexchecks"> 
-            <%= e.check_box %> <%= e.label { e.text } %> <br/>
-        </div>
-    <%end%>
-    </div> 
+    Set your workout: <br/><br/>
+
+    <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
+        <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
+        Reps: <%=e.number_field :reps %>, 
+        Sets: <%=e.number_field :sets %>, 
+        Duration: <%=e.number_field :duration %> <br/>
+    <%end%> 
+
+    <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
+        <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
+        Reps: <%=e.number_field :reps %>, 
+        Sets: <%=e.number_field :sets %>, 
+        Duration: <%=e.number_field :duration %> <br/>
+    <%end%> 
+
+    <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
+        <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
+        Reps: <%=e.number_field :reps %>, 
+        Sets: <%=e.number_field :sets %>, 
+        Duration: <%=e.number_field :duration %> <br/>
+    <%end%> 
+
+    <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
+        <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
+        Reps: <%=e.number_field :reps %>, 
+        Sets: <%=e.number_field :sets %>, 
+        Duration: <%=e.number_field :duration %> <br/>
+    <%end%> 
+
+    <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
+        <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
+        Reps: <%=e.number_field :reps %>, 
+        Sets: <%=e.number_field :sets %>, 
+        Duration: <%=e.number_field :duration %> <br/>
+    <%end%> 
+    <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
+        <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
+        Reps: <%=e.number_field :reps %>, 
+        Sets: <%=e.number_field :sets %>, 
+        Duration: <%=e.number_field :duration %> <br/>
+    <%end%> 
     <br/> <br/>
     <%=f.submit%> 
 

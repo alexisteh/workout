@@ -4,6 +4,7 @@ class CreateGyms < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :address
       t.string :list_of_equipment
+      t.integer :user_id 
     end
   end
 end

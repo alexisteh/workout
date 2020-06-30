@@ -6,7 +6,19 @@ class Workout < ApplicationRecord
     has_many :exercises, through: :workoutexercises
     
     validates :name, presence: :true 
-    validate :has_exercises? 
+    # validate :has_exercises? 
+
+    accepts_nested_attributes_for :workoutexercises 
+
+    def make_joiner(hash) 
+        hash.to_h.values[0].values.each do |we|
+            unless we["exercise_id"] == nil || we["exercise_id"] == ""
+                obj = Workoutexercise.new(we) 
+                obj.update(workout_id: self.id) 
+                obj.save 
+            end 
+        end 
+    end 
 
     def list_exercises 
         self.exercises.map{|exercise| "#{exercise.name}" }.join(", ") 

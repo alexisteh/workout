@@ -25,38 +25,33 @@ session_1 = Sesh.create(time: DateTime.now, goals:"Get a 6 pack in 6 hours!!", u
 session_2 = Sesh.create(time: DateTime.now, goals:"Get Shredded!!", user_id: usr_2.id, gym_id: gym_2.id)
 session_3 = Sesh.create(time: DateTime.now, goals:"Stretch and loosen body!", user_id: usr_3.id, gym_id: gym_3.id)
 
+workout_1 = Workout.create(name: "Gentle Cardio", description: "A regular cardio exercise for hearth fitness") 
+workout_2 = Workout.create(name: "Leg Day", description: "High-intensity leg workout to do at home") 
+workout_3 = Workout.create(name: "Mindful Relaxation", description: "Low-intensity relaxation") 
 
-workout_1 = Workout.new(name: "Gentle Cardio", description: "A regular cardio exercise for hearth fitness") 
-workout_2 = Workout.new(name: "Leg Day", description: "High-intensity leg workout to do at home") 
-workout_3 = Workout.new(name: "Mindful Relaxation", description: "Low-intensity relaxation") 
+exercise_1 = Exercise.create(name: "situps", category: "abdominal") 
+exercise_2 = Exercise.create(name: "yoga", category: "mindfulness")  
+exercise_3 = Exercise.create(name: "bicep curls", category: "arms")   
+exercise_4 = Exercise.create(name: "push ups", category: "arms")
+exercise_5 = Exercise.create(name: "biking", category: "cardio")    
+exercise_6 = Exercise.create(name: "stretches", category: "cool down")       
+exercise_7 = Exercise.create(name: "running at 6mph", category: "cardio")       
+exercise_8 = Exercise.create(name: "squats", category: "legs")       
+exercise_9 = Exercise.create(name: "lunges", category: "legs")       
 
-exercise_1 = Exercise.create(name: "situps", category: "abdominal", reps: 30, sets: 3, duration: 60) 
-exercise_2 = Exercise.create(name: "yoga", category: "mindfulness", sets: 1, duration: 300)  
-exercise_3 = Exercise.create(name: "bicep curls", category: "arms", reps: 15, sets: 3, duration: 120)   
-exercise_4 = Exercise.create(name: "push ups", category: "arms", reps: 30, sets: 5, duration: 180)
-exercise_5 = Exercise.create(name: "biking", category: "cardio", sets: 1, duration: 3600)    
-exercise_6 = Exercise.create(name: "stretches", category: "cool down", sets: 1, duration: 300)       
-exercise_7 = Exercise.create(name: "running at 6mph", category: "cardio", sets: 1, duration: 600)       
-exercise_8 = Exercise.create(name: "squats", category: "legs", reps: 20,sets: 5, duration: 1200)       
-exercise_9 = Exercise.create(name: "lunges", category: "legs", reps: 10,sets: 5, duration: 600)       
+we_1 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_1.id, reps: 10,sets: 5, duration: 180)
+we_2 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_5.id, reps: 1,sets: 1, duration: 1200)
+we_3 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_7.id, reps: 1,sets: 1, duration: 1200)
+we_4 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_6.id, reps: 1,sets: 1, duration: 300)
 
-workout_1.exercises << exercise_1
-workout_1.exercises << exercise_5 
-workout_1.exercises << exercise_6 
-workout_1.save 
-workout_2.exercises << exercise_7
-workout_2.exercises << exercise_8
-workout_2.exercises << exercise_9
-workout_2.exercises << exercise_6 
-workout_2.save 
-workout_3.exercises << exercise_7 
-workout_3.exercises << exercise_2 
-workout_3.save 
+we_5 = Workoutexercise.create(workout_id: workout_2.id, exercise_id: exercise_1.id, reps: 10,sets: 5, duration: 180)
+we_6 = Workoutexercise.create(workout_id: workout_2.id, exercise_id: exercise_8.id, reps: 20,sets: 5, duration: 1200)
+we_7 = Workoutexercise.create(workout_id: workout_2.id, exercise_id: exercise_9.id, reps: 20,sets: 5, duration: 1500)
+we_8 = Workoutexercise.create(workout_id: workout_2.id, exercise_id: exercise_6.id, reps: 1,sets: 1, duration: 300)
 
+we_9 = Workoutexercise.create(workout_id: workout_3.id, exercise_id: exercise_6.id, reps: 1,sets: 1, duration: 300)
+we_10 = Workoutexercise.create(workout_id: workout_3.id, exercise_id: exercise_2.id, reps: 1,sets: 1, duration: 1200) 
 
-workout_1.save
-workout_2.save
-workout_3.save
 
 
 ses_wkt_1 = Sessionworkout.create(sesh_id: session_1.id, workout_id: workout_1.id)

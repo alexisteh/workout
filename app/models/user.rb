@@ -20,4 +20,8 @@ class User < ApplicationRecord
         return nil if all == [] 
         return all.sort_by{|sesh| sesh.time} 
     end 
+
+    def gyms_sort 
+        self.gyms.sort_by{|gym| gym.name}
+    end 
 end 

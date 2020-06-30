@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   post '/trainings', to: 'trainings#create' 
 
   post '/gyms', to: 'gyms#create' 
+  get '/gyms/edit', to: 'gyms#edit', as: 'edit_gym'
+  patch '/gyms', to: 'gyms#update'
+  get '/gyms/delete', to: 'gyms#delete', as: 'delete_gym'
+
 end 

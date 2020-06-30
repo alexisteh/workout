@@ -1,0 +1,33 @@
+<div class="topnav">
+  <a href="/home">Home</a>
+  <a href="/seshes/new">Schedule New Workout Session</a> 
+  <a href="/trainings/new">Add New Training Routine</a>
+  <a href="/logout">Log Out</a>
+</div> 
+
+<h1> Edit gym </h1>
+<% if flash[:message] %>
+<ul>
+    <%flash[:message].each do |message| %>
+    <li style="color: red"><%=message%></li> 
+    <%end%>
+</ul> 
+<%end%> 
+<%=form_for @gym, url: '/gyms', method: :patch do |f| %>
+    <%= f.hidden_field :id , value: @gym.id %> 
+  <table> 
+  <tr>
+  <td> <%=f.label :name%> </td>
+  <td> <%=f.text_field :name%> </td> 
+  </tr>
+  <tr>
+  <td> <%=f.label :address%> </td> 
+  <td> <%=f.text_field :address%> </td> 
+  </tr>
+  <tr>
+  <td> <%=f.label :list_of_equipment%> </td> 
+  <td> <%=f.text_field :list_of_equipment%> </td> 
+  </tr>
+  <td> </td> <td> <%=f.submit%> </td> 
+  <table>
+<%end%>

@@ -41,31 +41,41 @@ Past sessions:
 
 Your registered gyms: 
 <ul> 
-  <%@user.gyms.each do |gym| %> 
+  <%@user.gyms_sort.each do |gym| %> 
     <li> <span style="color: green"><%=gym.name%></span> at <%=gym.address%> <br/> 
-    Equipment: <span style="color: orange"><%=gym.list_of_equipment%></span>
+    Equipment: <span style="color: orange"><%=gym.list_of_equipment%></span> 
+    <%=link_to "(edit)", edit_gym_path(id: gym.id) %> 
+    <%=link_to "(delete)", delete_gym_path(id: gym.id) %> 
     </li> 
   <%end%>
 </ul> 
 <br/>
 Register a new gym:
-<br/> 
 <% if flash[:message] %>
 <ul>
     <%flash[:message].each do |message| %>
     <li style="color: red"><%=message%></li> 
     <%end%>
-</ul>
+</ul> 
+<%else%> <br/><br/>
 <%end%> 
 
 <%=form_for @gym, url: '/gyms', method: :post do |f| %>
-  <%=f.label :name%> 
-  <%=f.text_field :name%> <br/>
-  <%=f.label :address%> 
-  <%=f.text_field :address%> <br/>
-  <%=f.label :list_of_equipment%> 
-  <%=f.text_field :list_of_equipment%> <br/>
-  <%=f.submit%>
+  <table>
+  <tr>
+  <td> <%=f.label :name%> </td>
+  <td> <%=f.text_field :name%> </td> 
+  </tr>
+  <tr>
+  <td> <%=f.label :address%> </td> 
+  <td> <%=f.text_field :address%> </td> 
+  </tr>
+  <tr>
+  <td> <%=f.label :list_of_equipment%> </td> 
+  <td> <%=f.text_field :list_of_equipment%> </td> 
+  </tr>
+  <td> </td> <td> <%=f.submit%> </td> 
+  <table>
 <%end%>
 
 </div> 

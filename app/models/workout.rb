@@ -8,8 +8,12 @@ class Workout < ApplicationRecord
     validates :name, presence: :true 
     validate :has_exercises? 
 
-    private 
+    def list_exercises 
+        self.exercises.map{|exercise| "#{exercise.name}" }.join(", ") 
+    end 
 
+    private 
+    
     def has_exercises?
         if self.exercises == [] 
             errors.add(:exercises, "are missing!")

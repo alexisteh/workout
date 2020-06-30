@@ -23,4 +23,6 @@ Rails.application.routes.draw do
   patch '/gyms', to: 'gyms#update'
   get '/gyms/delete', to: 'gyms#delete', as: 'delete_gym'
 
+  get '/workouts', to: 'workouts#show' 
+
 end 

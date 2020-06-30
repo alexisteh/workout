@@ -16,6 +16,11 @@ class WorkoutsController < ApplicationController
         end 
     end 
 
+    def show 
+        @workouts = Workout.all 
+    end 
+
+
     private 
     def workout_params
         params.require(:workout).permit(:name, :description, exercise_ids: [])

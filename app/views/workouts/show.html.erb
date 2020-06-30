@@ -10,7 +10,7 @@
 
 <ul>
 <%@workouts.each do |workout|%>
-    <li> <%=workout.name%> <%= link_to "(delete)", delete_workout_path(id: workout.id) %> <br/>
+    <li> <%= link_to  workout.name, "/workoutexercises/#{workout.id}"%> <%= link_to "(delete)", delete_workout_path(id: workout.id) %> <br/>
     <%= workout.list_exercises%> 
     </li>
 <%end%>

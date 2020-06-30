@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
             return redirect_to '/login'
         end 
         @user = User.find(session[:user_id]) 
+        @gym = Gym.new 
     end 
 
     def new 

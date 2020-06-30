@@ -12,9 +12,15 @@ Rails.application.routes.draw do
 
   get '/logout', to: 'sessions#destroy' 
 
-  get '/workouts/new', to: 'workouts#new' 
-  post '/workouts', to: 'workouts#create' 
-
   get '/seshes/new', to: 'seshes#new'
   post '/seshes', to: 'seshes#create'
+
+  get '/trainings/new', to: 'trainings#new' 
+  post '/trainings', to: 'trainings#create' 
+
+  post '/gyms', to: 'gyms#create' 
+  get '/gyms/edit', to: 'gyms#edit', as: 'edit_gym'
+  patch '/gyms', to: 'gyms#update'
+  get '/gyms/delete', to: 'gyms#delete', as: 'delete_gym'
+
 end 

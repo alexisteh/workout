@@ -1,13 +1,20 @@
-<h1>Create a new Workout routine! </h1>
+<div class="topnav">
+  <a class="active" href="/home">Home</a>
+  <a href="/seshes/new">Schedule New Workout Session</a> 
+  <a href="/trainings/new">Add New Training Routine</a>
+  <a href="/logout">Log Out</a>
+</div> 
+
+<h1>Create a new training routine! </h1>
 
 <%=form_for @workout, url: '/workouts', method: :post do |f| %>
 
-    <div class="container"> 
-        <div class="box-cell box1">
+    <div class="nwtrcontainer"> 
+        <div class="nwtrbox-cell box1">
         <%=f.label :name %> <br/>
         <%=f.text_field :name, placeholder: "routine name" %>
         </div>
-        <div class="box-cell box2">
+        <div class="nwtrbox-cell box2">
         <%=f.label :description %> <br/>
         <%=f.text_field :description, size: 75, placeholder: "short description" %>
         </div>
@@ -15,9 +22,9 @@
 
     <br/>
     <br/>
-    <div class="excontainer">
+    <div class="nwtrexcontainer">
     <%=f.collection_check_boxes :exercise_ids, @exercises, :id, :display do |e| %>
-        <div class="exercisechecks"> 
+        <div class="nwtrexchecks"> 
             <%= e.check_box %> <%= e.label { e.text } %> <br/>
         </div>
     <%end%>

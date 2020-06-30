@@ -1,5 +1,5 @@
 require 'date'
-# require 'require_all'
+require 'byebug'
 
 # load all ruby files in the directory "lib" and its subdirectories
 # require_all 'app/models'
@@ -7,6 +7,7 @@ User.destroy_all
 Gym.destroy_all 
 Sesh.destroy_all 
 Workout.destroy_all 
+Sessionworkout.destroy_all 
 
 
 usr_1 = User.create(name:"Jeremy", password:"abcfg-1", email:"jeremy123@gmail.com") 
@@ -24,14 +25,9 @@ session_2 = Sesh.create(time: DateTime.now, goals:"Get Shredded!!", user_id: usr
 session_3 = Sesh.create(time: DateTime.now, goals:"Stretch and loosen body!", user_id: usr_3.id, gym_id: gym_3.id)
 
 
-workout_1 = Workout.create(name: "Gentle Cardio", description: "A regular cardio exercise for hearth fitness") 
-workout_2 = Workout.create(name: "Leg Day", description: "High-intensity leg workout to do at home") 
-workout_3 = Workout.create(name: "Mindful Relaxation", description: "Low-intensity relaxation") 
-
-
-ses_wkt_1 = Sessionworkout.create(sesh_id: session_1.id, workout_id: workout_1.id)
-ses_wkt_2 = Sessionworkout.create(sesh_id: session_2.id, workout_id:workout_2.id)
-ses_wkt_3 = Sessionworkout.create(sesh_id: session_3.id, workout_id:workout_3.id)
+workout_1 = Workout.new(name: "Gentle Cardio", description: "A regular cardio exercise for hearth fitness") 
+workout_2 = Workout.new(name: "Leg Day", description: "High-intensity leg workout to do at home") 
+workout_3 = Workout.new(name: "Mindful Relaxation", description: "Low-intensity relaxation") 
 
 exercise_1 = Exercise.create(name: "situps", category: "abdominal", reps: 30, sets: 3, duration: 60) 
 exercise_2 = Exercise.create(name: "yoga", category: "mindfulness", sets: 1, duration: 300)  
@@ -55,3 +51,16 @@ workout_2.save
 workout_3.exercises << exercise_7 
 workout_3.exercises << exercise_2 
 workout_3.save 
+
+
+workout_1.save
+workout_2.save
+workout_3.save
+
+
+
+ses_wkt_1 = Sessionworkout.create(sesh_id: session_1.id, workout_id: workout_1.id)
+ses_wkt_2 = Sessionworkout.create(sesh_id: session_2.id, workout_id:workout_2.id)
+ses_wkt_3 = Sessionworkout.create(sesh_id: session_3.id, workout_id:workout_3.id)
+
+byebug

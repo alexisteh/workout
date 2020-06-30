@@ -1,5 +1,4 @@
 class Workout < ApplicationRecord
-
     has_many :sessionworkouts 
     has_many :seshes, through: :sessionworkouts  
 

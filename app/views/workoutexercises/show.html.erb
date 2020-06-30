@@ -1,0 +1,13 @@
+<h1>Workout Exercises</h1>
+
+<ul>
+<%@workoutexercises.each do |workout_e|%>
+    <li> <%= link_to workout_e.exercise.name, "/workoutexecises/#{workout_e.id}}/edit"%> <br/> 
+    Reps: <%= workout_e.reps%> 
+    <br>
+    Sets: <%= workout_e.sets%> 
+    <br>
+    Duration: <%= workout_e.duration%> 
+    </li>
+<%end%>
+<ul> 

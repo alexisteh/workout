@@ -1,1 +1,50 @@
-<h1>Exercises</h1> 
+<div class="topnav">
+  <a href="/home">Home</a>
+  <a href="/seshes/new">Schedule New Session</a> 
+  <a href="/workouts/new">Add New Workout</a>
+  <a href='/workouts'>Manage Workouts </a>
+  <a class="active" href='/exercises'>Manage Exercises</a> 
+  <a href="/logout">Log Out</a> 
+</div> 
+
+<div class="hmrow">
+
+<div class="hmcolumn">
+<h1>Personal Exercises</h1> 
+<ul>
+    <%@priv_exercises.each do |ex| %>
+        <li> <%=ex.name%> (<%=ex.category%>)
+        </li>
+    <%end%>
+</ul>
+
+Add a new exercise: 
+
+<%if flash[:message]%>
+    <ul> <%flash[:message].each do |error| %> 
+        <li style="color: red"> <%=error%> 
+        </li>
+        <%end%> 
+    </ul>
+<%end%> 
+
+<%=form_for @exercise, url: '/exercises/create', method: :post do |f|%>
+    <%=f.label :name%>
+    <%=f.text_field :name%><br/>
+    <%=f.label :category%>
+    <%=f.text_field :category%><br/>
+    <%=f.submit%>
+<%end%>
+
+</div>
+
+<div class="hmcolumn">
+<h1>Public Exercises</h1> 
+<ul>
+    <%@pub_exercises.each do |ex| %>
+        <li> <%=ex.name%> (<%=ex.category%>) 
+        </li>
+    <%end%>
+</ul> 
+</div>
+</div>

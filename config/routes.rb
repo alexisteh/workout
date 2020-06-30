@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   patch '/workoutexercises', to: 'workoutexercises#update' 
   
   get '/exercises', to: 'exercises#index' 
+  post '/exercises/create', to: 'exercises#create' 
 
 end 
 

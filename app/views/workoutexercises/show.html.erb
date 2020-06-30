@@ -1,8 +1,19 @@
+
+<div class="topnav">
+  <a href="/home">Home</a>
+  <a href="/seshes/new">Schedule New Session</a> 
+  <a href="/workouts/new">Add New Workout</a>
+  <a href='/workouts'>Manage Workouts </a>
+  <a href='/exercises'>Manage Exercises</a> 
+  <a href="/logout">Log Out</a> 
+</div> 
+
+
 <h1>Workout Exercises</h1>
 
 <ul>
 <%@workoutexercises.each do |workout_e|%>
-    <li> <%= link_to workout_e.exercise.name, edit_exercise_path(id: workout_e.id) %> <br/> 
+    <li> <%=workout_e.exercise.name%> <%= link_to "(edit)", edit_exercise_path(id: workout_e.id) %> <br/> 
     Reps: <%= workout_e.reps%> 
     <br>
     Sets: <%= workout_e.sets%> 

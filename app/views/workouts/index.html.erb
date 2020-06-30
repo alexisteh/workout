@@ -1,0 +1,36 @@
+<div class="topnav">
+  <a href="/home">Home</a>
+  <a href="/seshes/new">Schedule New Session</a> 
+  <a href="/workouts/new">Add New Workout</a>
+  <a class="active" href='/workouts'>Manage Workouts </a>
+  <a href='/exercises'>Manage Exercises</a> 
+  <a href="/logout">Log Out</a> 
+</div> 
+
+<div class="hmrow"> 
+
+<div class="hmcolumn"> 
+<h1>Personal Workouts</h1>
+
+<ul>
+<%@priv_workouts.each do |workout|%>
+    <li> <%= link_to  workout.name, "/workoutexercises/#{workout.id}"%> <%= link_to "(delete)", delete_workout_path(id: workout.id) %> <br/>
+    <%= workout.list_exercises%> 
+    </li>
+<%end%> 
+<ul> 
+</div>
+
+<div class="hmcolumn"> 
+<h1>Public Workouts</h1>
+
+<ul>
+<%@pub_workouts.each do |workout|%> 
+    <li> <%=workout.name%> <br/>
+    <%= workout.list_exercises%> 
+    </li>
+<%end%>
+<ul> 
+</div>
+
+</div>

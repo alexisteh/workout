@@ -6,6 +6,8 @@ class User < ApplicationRecord
     validates :email, presence: true
     validates :email, uniqueness: true 
 
+    has_many :workouts 
+    has_many :exercises 
     has_many :seshes  
     has_many :gyms   
 

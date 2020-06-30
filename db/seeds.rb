@@ -10,7 +10,7 @@ Workout.destroy_all
 Sessionworkout.destroy_all 
 Exercise.destroy_all 
 
-
+usr_0 = User.create(name:"Blank user", password: "1", email: "blank@blank.com")
 usr_1 = User.create(name:"Jeremy", password:"123", email:"jeremy123@gmail.com") 
 usr_2 = User.create(name:"Garreth", password:"2423csd-f", email:"gdog123@gmail.com")
 usr_3 = User.create(name:"Ari", password:"]sdf9", email:"ririme@gmail.com")
@@ -25,19 +25,19 @@ session_1 = Sesh.create(time: DateTime.now, goals:"Get a 6 pack in 6 hours!!", u
 session_2 = Sesh.create(time: DateTime.now, goals:"Get Shredded!!", user_id: usr_2.id, gym_id: gym_2.id)
 session_3 = Sesh.create(time: DateTime.now, goals:"Stretch and loosen body!", user_id: usr_3.id, gym_id: gym_3.id)
 
-workout_1 = Workout.create(name: "Gentle Cardio", description: "A regular cardio exercise for hearth fitness") 
-workout_2 = Workout.create(name: "Leg Day", description: "High-intensity leg workout to do at home") 
-workout_3 = Workout.create(name: "Mindful Relaxation", description: "Low-intensity relaxation") 
+workout_1 = Workout.create(name: "Gentle Cardio", description: "A regular cardio exercise for hearth fitness", user_id: usr_0.id) 
+workout_2 = Workout.create(name: "Leg Day", description: "High-intensity leg workout to do at home", user_id: usr_0.id) 
+workout_3 = Workout.create(name: "Mindful Relaxation", description: "Low-intensity relaxation", user_id: usr_0.id) 
 
-exercise_1 = Exercise.create(name: "situps", category: "abdominal") 
-exercise_2 = Exercise.create(name: "yoga", category: "mindfulness")  
-exercise_3 = Exercise.create(name: "bicep curls", category: "arms")   
-exercise_4 = Exercise.create(name: "push ups", category: "arms")
-exercise_5 = Exercise.create(name: "biking", category: "cardio")    
-exercise_6 = Exercise.create(name: "stretches", category: "cool down")       
-exercise_7 = Exercise.create(name: "running at 6mph", category: "cardio")       
-exercise_8 = Exercise.create(name: "squats", category: "legs")       
-exercise_9 = Exercise.create(name: "lunges", category: "legs")       
+exercise_1 = Exercise.create(name: "situps", category: "abdominal", user_id: usr_0.id) 
+exercise_2 = Exercise.create(name: "yoga", category: "mindfulness", user_id: usr_0.id) 
+exercise_3 = Exercise.create(name: "bicep curls", category: "arms", user_id: usr_0.id)   
+exercise_4 = Exercise.create(name: "push ups", category: "arms", user_id: usr_0.id) 
+exercise_5 = Exercise.create(name: "biking", category: "cardio", user_id: usr_0.id) 
+exercise_6 = Exercise.create(name: "stretches", category: "cool down", user_id: usr_0.id)    
+exercise_7 = Exercise.create(name: "running at 6mph", category: "cardio", user_id: usr_0.id)    
+exercise_8 = Exercise.create(name: "squats", category: "legs", user_id: usr_0.id) 
+exercise_9 = Exercise.create(name: "lunges", category: "legs", user_id: usr_0.id)    
 
 we_1 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_1.id, reps: 10,sets: 5, duration: 180)
 we_2 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_5.id, reps: 1,sets: 1, duration: 1200)
@@ -52,9 +52,7 @@ we_8 = Workoutexercise.create(workout_id: workout_2.id, exercise_id: exercise_6.
 we_9 = Workoutexercise.create(workout_id: workout_3.id, exercise_id: exercise_6.id, reps: 1,sets: 1, duration: 300)
 we_10 = Workoutexercise.create(workout_id: workout_3.id, exercise_id: exercise_2.id, reps: 1,sets: 1, duration: 1200) 
 
-
-byebug
-ses_wkt_1 = Sessionworkout.create(sesh_id: session_1.id, workout_id: workout_1.id)
+ses_wkt_1 = Sessionworkout.create(sesh_id: session_1.id, workout_id: workout_1.id) 
 ses_wkt_2 = Sessionworkout.create(sesh_id: session_2.id, workout_id:workout_2.id)
 ses_wkt_3 = Sessionworkout.create(sesh_id: session_3.id, workout_id:workout_3.id)
 

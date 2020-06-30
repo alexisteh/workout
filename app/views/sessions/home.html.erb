@@ -19,7 +19,9 @@ Upcoming sessions:
 <ul>
   <%@user.future_seshes.each do |sesh| %>
     <li> <%=sesh.time.strftime("%B %d %Y at %H:%M")%>, goal - <%=sesh.goals%><br/>
-    Workout routines: <%=sesh.workouts_list%> 
+    Workout routines: <%=sesh.workouts_list%> <br/>
+    <%=link_to "(edit)", edit_sesh_path(sesh) %> 
+    <%=link_to "(delete)", delete_sesh_path(sesh) %> 
     </li>
   <%end%>
 </ul>

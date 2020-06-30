@@ -1,0 +1,40 @@
+
+<div class="topnav">
+  <a href="/home">Home</a>
+  <a href="/seshes/new">Schedule New Session</a> 
+  <a href="/workouts/new">Add New Workout</a>
+  <a href='/workouts'>Manage Workouts </a>
+  <a href='/exercises'>Manage Exercises</a> 
+  <a href="/logout">Log Out</a> 
+</div> 
+
+<h1>Edit a Workout Session! </h1> 
+
+<% if flash[:message] %>
+<ul>
+    <%flash[:message].each do |message| %>
+    <li style="color: red"><%=message%></li> 
+    <%end%>
+</ul>
+<%end%> 
+
+<%=form_for @sesh, url: "/seshes", method: :post do |f| %>
+    <%= f.hidden_field :id , value: @sesh.id %> 
+    <%=f.label "Select time:" %> 
+    <%=f.datetime_select :time, minute_step: 10 %> 
+    <br/>
+    <%=f.label "Set your workout goal:" %>
+    <%=f.text_field :goals, size: 50 %> 
+    <br/> 
+    <%=f.label "Select your gym:" %>
+    <%=f.collection_select :gym_id , @gyms, :id, :name %> 
+    <br/> 
+    <%=f.label "Select workout routines to cover in this session:"%> <br/>
+    <%=f.collection_check_boxes :workout_ids, @workouts, :id, :name do |e| %>
+        <div class="exercisechecks"> 
+            <%= e.check_box %> <%= e.label { e.text } %> <br/>
+        </div> 
+    <%end%>
+    <br/> 
+    <%=f.submit%> 
+<%end%>

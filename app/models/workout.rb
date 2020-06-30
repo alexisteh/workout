@@ -25,6 +25,10 @@ class Workout < ApplicationRecord
         self.exercises.map{|exercise| "#{exercise.name}" }.join(", ") 
     end 
 
+    def self.applicable_workouts(userid) 
+        Workout.all.select{|workout| workout.user_id == userid || workout.user_id == User.first.id }
+    end 
+
     private 
     
     # def has_exercises?

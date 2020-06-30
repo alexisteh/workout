@@ -2,7 +2,7 @@
 <div class="topnav">
   <a href="/home">Home</a>
   <a class="active" href="/seshes/new">Schedule New Workout Session</a> 
-  <a href="/trainings/new">Add New Training Routine</a>
+  <a href="/workouts/new">Add New workout Routine</a>
   <a href="/logout">Log Out</a>
 </div> 
 
@@ -26,8 +26,8 @@
     <%=f.label "Select your gym:" %>
     <%=f.collection_select :gym_id , @gyms, :id, :name %> 
     <br/>
-    <%=f.label "Select training routines to cover in this session:"%> <br/>
-    <%=f.collection_check_boxes :training_ids, @trainings, :id, :name do |e| %>
+    <%=f.label "Select workout routines to cover in this session:"%> <br/>
+    <%=f.collection_check_boxes :workout_ids, @workouts, :id, :name do |e| %>
         <div class="exercisechecks"> 
             <%= e.check_box %> <%= e.label { e.text } %> <br/>
         </div> 

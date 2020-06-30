@@ -3,7 +3,7 @@ class SeshesController < ApplicationController
     def new 
         @sesh = Sesh.new 
         @gyms = Gym.all 
-        @trainings = Training.all 
+        @workouts = Workout.all 
     end 
 
     def create 
@@ -21,6 +21,6 @@ class SeshesController < ApplicationController
     private 
 
     def sesh_params 
-        params.require(:sesh).permit(:time, :goals, :gym_id, training_ids: [])
+        params.require(:sesh).permit(:time, :goals, :gym_id, workout_ids: [])
     end 
 end 

@@ -1,13 +1,13 @@
 <div class="topnav">
   <a class="active" href="/home">Home</a>
   <a href="/seshes/new">Schedule New Workout Session</a> 
-  <a href="/trainings/new">Add New Training Routine</a>
+  <a href="/workouts/new">Add New Workout Routine</a>
   <a href="/logout">Log Out</a>
 </div> 
 
 <h1>Create a new training routine! </h1>
 
-<%=form_for @training, url: '/trainings', method: :post do |f| %>
+<%=form_for @workout, url: '/workouts', method: :post do |f| %>
 
     <div class="nwtrcontainer"> 
         <div class="nwtrbox-cell box1">

@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   get '/seshes/new', to: 'seshes#new'
   post '/seshes', to: 'seshes#create'
 
-  get '/trainings/new', to: 'trainings#new' 
-  post '/trainings', to: 'trainings#create' 
+  get '/workouts/new', to: 'workouts#new' 
+  post '/workouts', to: 'workouts#create' 
 
   post '/gyms', to: 'gyms#create' 
   get '/gyms/edit', to: 'gyms#edit', as: 'edit_gym'

@@ -1,12 +1,13 @@
 require 'date'
-# require 'require_all'
+require 'byebug'
 
 # load all ruby files in the directory "lib" and its subdirectories
 # require_all 'app/models'
 User.destroy_all 
 Gym.destroy_all 
 Sesh.destroy_all 
-Training.destroy_all 
+Workout.destroy_all 
+Sessionworkout.destroy_all 
 
 
 usr_1 = User.create(name:"Jeremy", password:"123", email:"jeremy123@gmail.com") 
@@ -24,14 +25,9 @@ session_2 = Sesh.create(time: DateTime.now, goals:"Get Shredded!!", user_id: usr
 session_3 = Sesh.create(time: DateTime.now, goals:"Stretch and loosen body!", user_id: usr_3.id, gym_id: gym_3.id)
 
 
-training_1 = Training.create(name: "Gentle Cardio", description: "A regular cardio exercise for hearth fitness") 
-training_2 = Training.create(name: "Leg Day", description: "High-intensity leg training to do at home") 
-training_3 = Training.create(name: "Mindful Relaxation", description: "Low-intensity relaxation") 
-
-
-ses_wkt_1 = Sessiontraining.create(sesh_id: session_1.id, training_id: training_1.id)
-ses_wkt_2 = Sessiontraining.create(sesh_id: session_2.id, training_id:training_2.id)
-ses_wkt_3 = Sessiontraining.create(sesh_id: session_3.id, training_id:training_3.id)
+workout_1 = Workout.new(name: "Gentle Cardio", description: "A regular cardio exercise for hearth fitness") 
+workout_2 = Workout.new(name: "Leg Day", description: "High-intensity leg workout to do at home") 
+workout_3 = Workout.new(name: "Mindful Relaxation", description: "Low-intensity relaxation") 
 
 exercise_1 = Exercise.create(name: "situps", category: "abdominal", reps: 30, sets: 3, duration: 60) 
 exercise_2 = Exercise.create(name: "yoga", category: "mindfulness", sets: 1, duration: 300)  
@@ -43,15 +39,28 @@ exercise_7 = Exercise.create(name: "running at 6mph", category: "cardio", sets: 
 exercise_8 = Exercise.create(name: "squats", category: "legs", reps: 20,sets: 5, duration: 1200)       
 exercise_9 = Exercise.create(name: "lunges", category: "legs", reps: 10,sets: 5, duration: 600)       
 
-training_1.exercises << exercise_1
-training_1.exercises << exercise_5 
-training_1.exercises << exercise_6 
-training_1.save 
-training_2.exercises << exercise_7
-training_2.exercises << exercise_8
-training_2.exercises << exercise_9
-training_2.exercises << exercise_6 
-training_2.save 
-training_3.exercises << exercise_7 
-training_3.exercises << exercise_2 
-training_3.save 
+workout_1.exercises << exercise_1
+workout_1.exercises << exercise_5 
+workout_1.exercises << exercise_6 
+workout_1.save 
+workout_2.exercises << exercise_7
+workout_2.exercises << exercise_8
+workout_2.exercises << exercise_9
+workout_2.exercises << exercise_6 
+workout_2.save 
+workout_3.exercises << exercise_7 
+workout_3.exercises << exercise_2 
+workout_3.save 
+
+
+workout_1.save
+workout_2.save
+workout_3.save
+
+
+
+ses_wkt_1 = Sessionworkout.create(sesh_id: session_1.id, workout_id: workout_1.id)
+ses_wkt_2 = Sessionworkout.create(sesh_id: session_2.id, workout_id:workout_2.id)
+ses_wkt_3 = Sessionworkout.create(sesh_id: session_3.id, workout_id:workout_3.id)
+
+byebug

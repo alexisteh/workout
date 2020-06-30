@@ -34,25 +34,25 @@ ActiveRecord::Schema.define(version: 2020_06_30_021211) do
     t.integer "gym_id"
   end
 
-  create_table "sessiontrainings", force: :cascade do |t|
+  create_table "sessionworkouts", force: :cascade do |t|
     t.integer "sesh_id"
-    t.integer "training_id"
-  end
-
-  create_table "trainingexercises", force: :cascade do |t|
-    t.integer "training_id"
-    t.integer "exercise_id"
-  end
-
-  create_table "trainings", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
+    t.integer "workout_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
     t.string "email"
+  end
+
+  create_table "workoutexercises", force: :cascade do |t|
+    t.integer "workout_id"
+    t.integer "exercise_id"
+  end
+
+  create_table "workouts", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
   end
 
 end

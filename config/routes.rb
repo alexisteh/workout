@@ -14,4 +14,7 @@ Rails.application.routes.draw do
 
   get '/workouts/new', to: 'workouts#new' 
   post '/workouts', to: 'workouts#create' 
+
+  get '/seshes/new', to: 'seshes#new'
+  post '/seshes', to: 'seshes#create'
 end 

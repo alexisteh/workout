@@ -1,0 +1,43 @@
+<h1>Create a new session! </h1>
+
+<% if flash[:errors]  %>
+    <ul>
+    <% flash[:errors].each do |error| %>
+        <li style="color: red">
+            <%= error%>
+        </li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%=form_for @sesh, url: '/seshes', method: :post do |f| %>
+
+    <div class="container"> 
+        <div class="box-cell box1">
+        <%=f.label :time %> <br/>
+        <%=f.text_field :time, placeholder: "session date" %>
+        </div>
+        <div class="box-cell box2">
+        <%=f.label :goals %> <br/>
+        <%=f.text_field :goals, size: 75, placeholder: "goals" %>
+        </div>
+    </div>
+
+    <br>
+    <%= f.label "Gym" %>
+    <br>
+    <%= f.collection_select :gym_id, @gyms , :id, :name %>
+
+
+    <br>
+    <div class="workout_container">
+    <%=f.collection_check_boxes :workout_ids, @workouts, :id, :display do |e| %>
+        <div class="workoutchecks"> 
+            <%= e.check_box %> <%= e.label { e.text } %> <br/>
+        </div>
+    <%end%>
+    </div> 
+    <br/> <br/>
+    <%=f.submit%> 
+
+<%end%>

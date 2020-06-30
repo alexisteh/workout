@@ -29,7 +29,9 @@ class Sesh < ApplicationRecord
     end 
 
     def time_in_future? 
-        unless self.time >= Time.now 
+        time_sesh = self.time.strftime("%Y %m %d %H %M")
+        time_now = Time.now.strftime("%Y %m %d %H %M") 
+        unless time_sesh >= time_now  
             errors.add(:time, "must be in the future!")
         end 
     end 

@@ -10,13 +10,13 @@ class User < ApplicationRecord
     has_many :gyms   
 
     def past_seshes 
-        all = self.seshes.select{|sesh| sesh.time < Time.now}
+        all = self.seshes.select{|sesh| sesh.time.strftime("%Y %m %d %H %M") < Time.now.strftime("%Y %m %d %H %M")}
         return nil if all == [] 
-        return all.sort_by{|sesh| sesh.time} 
+        return all.sort_by{|sesh| sesh.time}  
     end 
 
     def future_seshes 
-        all = self.seshes.select{|sesh| sesh.time >= Time.now}
+        all = self.seshes.select{|sesh| sesh.time.strftime("%Y %m %d %H %M") >= Time.now.strftime("%Y %m %d %H %M")}
         return nil if all == [] 
         return all.sort_by{|sesh| sesh.time} 
     end 

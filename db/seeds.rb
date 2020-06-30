@@ -8,6 +8,7 @@ Gym.destroy_all
 Sesh.destroy_all 
 Workout.destroy_all 
 Sessionworkout.destroy_all 
+Exercise.destroy_all 
 
 
 usr_1 = User.create(name:"Jeremy", password:"123", email:"jeremy123@gmail.com") 
@@ -58,9 +59,6 @@ workout_2.save
 workout_3.save
 
 
-
 ses_wkt_1 = Sessionworkout.create(sesh_id: session_1.id, workout_id: workout_1.id)
 ses_wkt_2 = Sessionworkout.create(sesh_id: session_2.id, workout_id:workout_2.id)
 ses_wkt_3 = Sessionworkout.create(sesh_id: session_3.id, workout_id:workout_3.id)
-
-byebug

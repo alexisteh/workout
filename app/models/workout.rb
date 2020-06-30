@@ -8,7 +8,6 @@ class Workout < ApplicationRecord
     validates :name, presence: :true 
     validate :has_exercises? 
 
-
     private 
 
     def has_exercises?

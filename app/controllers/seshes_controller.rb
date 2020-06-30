@@ -1,7 +1,7 @@
 class SeshesController < ApplicationController
 
     def new 
-        @sesh = Sesh.new 
+        @sesh = Sesh.new  
         @gyms = Gym.all 
         @workouts = Workout.all 
     end 

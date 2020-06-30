@@ -22,6 +22,6 @@ class User < ApplicationRecord
     end 
 
     def gyms_sort 
-        self.gyms.sort_by{|gym| gym.name}
+        self.gyms.sort_by{|gym| gym.name.downcase}
     end 
 end 

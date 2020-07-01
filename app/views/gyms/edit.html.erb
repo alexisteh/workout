@@ -1,4 +1,11 @@
+
+<div class="hmsplit left">
+
+<div class="box welcome">
 <h1> Edit gym </h1>
+</div> 
+
+<div class="box hmdetails">
 <% if flash[:message] %>
 <ul>
     <%flash[:message].each do |message| %>
@@ -8,19 +15,22 @@
 <%end%> 
 <%=form_for @gym, url: '/gyms', method: :patch do |f| %>
     <%= f.hidden_field :id , value: @gym.id %> 
-  <table> 
+  <table width="100%"; padding="20px">
   <tr>
-  <td> <%=f.label :name%> </td>
+  <td style="text-align:right"> <%=f.label :name%> </td>
   <td> <%=f.text_field :name%> </td> 
   </tr>
   <tr>
-  <td> <%=f.label :address%> </td> 
+  <td style="text-align:right"> <%=f.label :address%> </td> 
   <td> <%=f.text_field :address%> </td> 
   </tr>
   <tr>
-  <td> <%=f.label :list_of_equipment%> </td> 
+  <td style="text-align:right"> <%=f.label :list_of_equipment%> </td> 
   <td> <%=f.text_field :list_of_equipment%> </td> 
   </tr>
   <td> </td> <td> <%=f.submit%> </td> 
   <table>
 <%end%>
+</div>
+
+</div>

@@ -3,6 +3,7 @@ class WorkoutexercisesController < ApplicationController
     # TODO: Link workouts to this workout exercise
     def show
         # byebug
+        @workout = Workout.find(params[:id])
         @workoutexercises = Workout.find(params[:id]).workoutexercises 
     end
 

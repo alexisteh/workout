@@ -1,3 +1,10 @@
+
+<div class="hmsplit left">
+<div class="box welcome">
+<h1>Edit Exercise Details</h1>
+</div>
+<div class="box hmdetails">
+
 <%if flash[:message]%>
     <ul> <%flash[:message].each do |error| %> 
         <li style="color: red"> <%=error%> 
@@ -6,11 +13,18 @@
     </ul>
 <%end%> 
 
-<%=form_for @exercise, url: '/exercises', method: :patch do |f|%>
-    <%= f.hidden_field :id , value: @exercise.id %> 
-    <%=f.label :name%>
-    <%=f.text_field :name%><br/>
-    <%=f.label :category%>
-    <%=f.text_field :category%><br/>
-    <%=f.submit%>
+<%=form_for @exercise, url: '/exercises', method: :patch do |f|%> 
+   <%= f.hidden_field :id , value: @exercise.id %> 
+    <table width="100%"; padding="20px">
+    <tr>
+         <td style="text-align:right"> <%=f.label :name%> </td>
+        <td> <%=f.text_field :name%>    </td>
+    </tr><tr>
+             <td style="text-align:right"> <%=f.label :category%> </td>
+            <td> <%=f.text_field :category%></td>
+    </tr>
+    <tr> <td></td> <td><%=f.submit%></td></tr>
+    </table>
 <%end%>
+</div>
+</div>

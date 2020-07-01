@@ -1,6 +1,10 @@
+<div class="hmsplit left">
 
+<div class="box welcome">
 <h1> Edit exercise </h1>
+</div>
 
+<div class="box hmdetails">
 <% if flash[:message] %>
 <ul>
     <%flash[:message].each do |message| %>
@@ -26,3 +30,6 @@
   <td> </td> <td> <%=f.submit "Update Exercise"%> </td> 
   <table>
 <%end%>
+
+</div>
+</div>

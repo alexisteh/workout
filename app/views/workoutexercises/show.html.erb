@@ -1,6 +1,9 @@
+<div class="hmsplit left">
+<div class="box welcome">
+<h1>Workout: <%=@workout.name%></h1>
+</div>
 
-<h1>Workout Exercises</h1>
-
+<div class="box hmdetails">
 <ul>
 <%@workoutexercises.each do |workout_e|%>
     <li> <%=workout_e.exercise.name%> <%= link_to "(edit)", edit_exercise_path(id: workout_e.id) %> <br/> 
@@ -12,3 +15,5 @@
     </li>
 <%end%>
 <ul> 
+</div>
+</div>

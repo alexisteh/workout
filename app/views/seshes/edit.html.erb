@@ -1,6 +1,9 @@
 
+<div class="box welcome">
 <h1>Edit a Workout Session! </h1> 
+</div>
 
+<div class="box hmdetails">
 <% if flash[:message] %>
 <ul>
     <%flash[:message].each do |message| %>
@@ -29,3 +32,4 @@
     <br/> 
     <%=f.submit%> 
 <%end%>
+</div> 

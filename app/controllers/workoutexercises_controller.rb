@@ -1,10 +1,9 @@
-class WorkoutexercisesController < ActionController::Base
+class WorkoutexercisesController < ApplicationController
 
     # TODO: Link workouts to this workout exercise
     def show
         # byebug
-        @workoutexercises = Workout.find(params[:id]).workoutexercises
-        
+        @workoutexercises = Workout.find(params[:id]).workoutexercises 
     end
 
     def edit 

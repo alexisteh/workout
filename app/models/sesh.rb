@@ -1,3 +1,4 @@
+require 'icalendar'
 class Sesh < ApplicationRecord
     belongs_to :user 
     belongs_to :gym 
@@ -42,4 +43,17 @@ class Sesh < ApplicationRecord
             errors.add(:time, "must be in the future!")
         end 
     end 
+
+
+    # Create a calendar with an event (standard method)
+    def create_calendar
+        cal = Icalendar::Calendar.new
+        cal.event do |e|
+        # e.dtstart     = Icalendar::Values::self.time Don't know how to implement
+        # e.dtend       = TO BE CALCULATED
+        e.summary     = "Workout Session"
+        e.description = self.goals
+        end
+        cal.publish
+    end
 end

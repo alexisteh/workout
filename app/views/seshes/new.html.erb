@@ -1,5 +1,9 @@
-<h1>Schedule a new Workout Session! </h1> 
 
+<div class="box welcome">
+<h1>Schedule a new session</h1>
+</div>
+
+<div class="box hmdetails">
 <% if flash[:message] %>
 <ul>
     <%flash[:message].each do |message| %>
@@ -27,3 +31,5 @@
     <br/> 
     <%=f.submit%> 
 <%end%>
+
+</div>

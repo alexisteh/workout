@@ -1,4 +1,9 @@
+<div class="box welcome">
 <h1>Create a new training routine! </h1>
+</div>
+
+
+<div class="box hmdetails">
 
 <%=form_for @workout, url: '/workouts', method: :post do |f| %>
 
@@ -12,10 +17,9 @@
         <%=f.text_field :description, size: 75, placeholder: "short description" %>
         </div>
     </div>
-    <br/>
-    <br/> 
 
-    Set your workout: <br/><br/>
+    <div class="nwtrexercises"> 
+    Configure the exercises in your workout <br/><br/>
 
     <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
         <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
@@ -60,4 +64,7 @@
     <br/> <br/>
     <%=f.submit%> 
 
+    </div>
+
 <%end%>
+</div>

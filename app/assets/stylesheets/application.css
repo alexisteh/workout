@@ -33,6 +33,7 @@ body {
     background-color: #F2F0EB; 
     padding: 30px;
     font-family: "Montserrat Regular"; 
+    margin: 0;
 }
 
 h1 {
@@ -47,6 +48,11 @@ h1 {
 .link:hover {
   text-decoration: underline; 
   color: #E93F33; 
+}
+
+.bold {
+  font-family: 'Montserrat Bold';  
+  color:  #E93F33; 
 }
 
 /* styling for center box (login) */
@@ -64,22 +70,23 @@ h1 {
 /* styling for home page */
 
 .hmsplit { 
-  height: 100%;
+  height: 70%;
   width: 50%;
   position: fixed;
   z-index: 1;
   top: 100px;
   overflow-x: hidden;
-  padding-bottom: 80px
+  padding-bottom: 50px; 
 }
 
 .left {
   left: 0;
-  overflow: scroll;
+  overflow: scroll; 
 }
 
 .right {
   right: 0;
+  overflow: scroll; 
 }
 
  /* styling for floating boxes */
@@ -119,6 +126,11 @@ h1 {
     padding: 10px;  
 }
 
+.nwtrexercises {
+  width: 800px; 
+  padding: 10px;  
+}
+
  /* styling for new trainings, exercises  */
 .nwtrexcontainer {
   padding: 14px;
@@ -127,10 +139,6 @@ h1 {
     grid-column-gap: 10px;
     grid-row-gap: 10px;
   }
-
-.nwtrexchecks:hover {
-    background-color: lightblue;
-}
 
 
  /* styling for top navigation bar  */

@@ -1,6 +1,9 @@
 
 <div class="hmsplit left"> 
-<h1>Personal Workouts</h1>
+
+<div class="box hmdetails">
+
+<h2>Workouts you've created</h2>
 
 <ul>
 <%@priv_workouts.each do |workout|%>
@@ -10,9 +13,13 @@
 <%end%> 
 <ul> 
 </div>
+</div>
+
 
 <div class="hmsplit right"> 
-<h1>Public Workouts</h1>
+
+<div class="box hmdetails">
+<h2>Public Workouts</h2>
 
 <ul>
 <%@pub_workouts.each do |workout|%> 

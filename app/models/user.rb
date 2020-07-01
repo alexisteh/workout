@@ -23,6 +23,12 @@ class User < ApplicationRecord
         return all.sort_by{|sesh| sesh.time.strftime("%Y %m %d %H %M") } 
     end 
 
+    def active_seshes 
+        all = self.seshes.select{|sesh| sesh.time - Time.now < 3600 && sesh.time - Time.now > -3600  }
+        return nil if all == [] 
+        return all.sort_by{|sesh| sesh.time.strftime("%Y %m %d %H %M")} 
+    end 
+
     def applicable_workouts 
         Workout.all.select{|workout| workout.user_id == self.id || workout.user_id == User.first.id }
     end 

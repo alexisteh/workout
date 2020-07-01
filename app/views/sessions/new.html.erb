@@ -1,18 +1,29 @@
-<h1>Log into your workout account!</h1>
+
+
+<div class="centerbox">
+<h1 style="color: #4155A2">LOG IN</h1>
 
 <% if flash[:message] %>
-    <p style="color: red"><%=flash[:message] %></p> 
-<%end%>
+    <p style="color: #E93F33"><%=flash[:message] %></p> 
+<%end%> 
+
+<br/>
 
 <%=form_for @user, url: '/login', method: :post do |f| %>
-    <%=f.label :name %>
-    <%=f.text_field :name %>
-    <br/>
-    <%=f.label :password %>
+
+    <%=f.label :name %> <br/>
+    <%=f.text_field :name %> <br/>
+
+    <%=f.label :password %> <br/>
     <%=f.password_field :password %> 
+    <br/>
 
     <%=f.submit "Log In" %> 
 
 <%end%>
 
-<%= link_to 'Sign Up', '/signup' %> 
+<br/><br/>
+
+<%= link_to 'OR SIGN UP', '/signup', class: 'link' %> 
+
+</div>

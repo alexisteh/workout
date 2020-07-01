@@ -14,17 +14,57 @@
  *= require_self
  */
 
+  /* defining fonts */
+
+ @font-face {  
+   font-family: 'Montserrat Bold';  
+   src: url('Montserrat-Bold.ttf');
+  }
+
+@font-face {  
+  font-family: 'Montserrat Regular';  
+  src: url('Montserrat-Regular.ttf');
+  }
+
+
  /* styling for all text */
+
 body {
-    padding: 14px;
-    font-family: "Arial"; 
+    background-color: #F2F0EB; 
+    padding: 30px;
+    font-family: "Montserrat Regular"; 
 }
+
 h1 {
   line-height: 0.2em;
   padding: 2px;
 }
 
- /* styling for home page */
+.link {
+  text-decoration: none; 
+  color: #E93F33; 
+}
+.link:hover {
+  text-decoration: underline; 
+  color: #E93F33; 
+}
+
+/* styling for center box (login) */
+
+.centerbox {
+  max-width: 500px;
+  position: absolute; 
+  left: 0;
+  right: 0; 
+  top: 150px; 
+  margin: auto; 
+  text-align: center;
+} 
+
+ /* styling for login form */
+
+
+/* styling for home page */
 
 .hmsplit {
   height: 100%;
@@ -55,6 +95,7 @@ h1 {
   background-color: lightblue; 
 }
 
+
  /* styling for new trainings, name and desc  */
 .nwtrcontainter {
   display: table-row; 
@@ -78,26 +119,43 @@ h1 {
     background-color: lightblue;
 }
 
+
  /* styling for top navigation bar  */
 .topnav {
-    overflow: hidden;
-  }
+    margin: auto; 
+    overflow: hidden; 
+    padding-top: 10px; 
+    padding-bottom: 20px; 
+    display: flex; 
+    justify-content: center
+  } 
+
 .topnav a { 
   float: left; 
-  color: #3446eb; 
-  font-family: "Arial"; 
-  font-weight: bold; 
+  color: #706E69; 
+  font-family: 'Montserrat Bold'; 
   padding: 14px 14px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 20px;
 } 
+
+.topnav a::after { 
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  background: #E93F33;
+  transition: width .3s;
+}
+
 .topnav a:hover {
-  text-decoration: underline;
-  color: #ff4545; 
-  font-weight: bold;
+  color: #E93F33;
+}
+
+.topnav a:hover:after {
+  width: 100%;
 } 
+
 .topnav a.active {
-  text-decoration: underline;
-  color: #ff4545;
-  font-weight: bold;
+  color: #4155A2;
 }

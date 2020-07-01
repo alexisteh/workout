@@ -12,29 +12,31 @@
   <body>
 
   <div class="topnav"> 
-    <%if @site == "home"%>  <a href="/home" class="active" >Home</a> 
-    <%else%> <a href="/home">Home</a>
+
+    <%if @site == "home"%>  <a href="/home" class="active" >HOME</a> 
+    <%else%> <a href="/home">HOME</a>
     <%end%>
 
-   <%if @site == "new_sesh"%>  <a href="/seshes/new" class="active" >Schedule New Session</a> 
-    <%else%> <a href="/seshes/new">Schedule New Session</a> 
+   <%if @site == "new_sesh"%>  <a href="/seshes/new" class="active" >NEW SESSION</a> 
+    <%else%> <a href="/seshes/new">NEW SESSION</a> 
     <%end%>
 
-    <%if @site == "new_workout"%>  <a href="/workouts/new" class="active" >Add New Workout</a> 
-    <%else%> <a href="/workouts/new">Add New Workout</a>
+    <%if @site == "new_workout"%>  <a href="/workouts/new" class="active" >NEW WORKOUT</a> 
+    <%else%> <a href="/workouts/new">NEW WORKOUT</a>
     <%end%>
 
-    <%if @site == "manage_workouts"%>  <a href='/workouts' class="active">Manage Workouts </a> 
-    <%else%> <a href='/workouts'>Manage Workouts </a>
+    <%if @site == "manage_workouts"%>  <a href='/workouts' class="active">WORKOUTS</a> 
+    <%else%> <a href='/workouts'>WORKOUTS </a>
     <%end%>
 
-    <%if @site == "manage_exercises"%>   <a href='/exercises' class="active" >Manage Exercises</a>
-    <%else%>  <a href='/exercises'>Manage Exercises</a>
+    <%if @site == "manage_exercises"%>   <a href='/exercises' class="active" >EXERCISES</a>
+    <%else%>  <a href='/exercises'>EXERCISES</a>
+
     <%end%>
 
-    <a href="/logbook">Logbook</a> 
+    <a href="/logbook">LOGBOOK</a> 
 
-    <a href="/logout">Sign Out</a> 
+    <a href="/logout">SIGN OUT</a> 
 
   </div> 
 

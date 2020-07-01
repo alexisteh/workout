@@ -3,8 +3,8 @@ class Workout < ApplicationRecord
     has_many :sessionworkouts 
     has_many :seshes, through: :sessionworkouts  
 
-    has_many :workoutexercises 
-    has_many :exercises, through: :workoutexercises
+    has_many :workoutexercises, :dependent => :destroy
+    has_many :exercises, through: :workoutexercises, :dependent => :destroy
 
     # validates :name, presence: :true 
     # validate :has_exercises? 

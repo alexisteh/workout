@@ -20,17 +20,39 @@ body {
     font-family: "Arial"; 
 }
 h1 {
-    padding: 14px;
+  line-height: 0.2em;
+  padding: 2px;
 }
 
  /* styling for home page */
 
-.hmrow {
-  display: flex; 
+.hmsplit {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 80px;
+  overflow-x: hidden;
+  padding-bottom: 80px
 }
 
-.hmcolumn {
-  flex: 50%;
+.left {
+  left: 0;
+  overflow: scroll;
+}
+
+.right {
+  right: 0;
+}
+
+ /* styling for floating boxes */
+
+.box {
+  margin: 20px; 
+  border-radius: 7px; 
+  padding: 20px; 
+  display: block; 
+  background-color: lightblue; 
 }
 
  /* styling for new trainings, name and desc  */

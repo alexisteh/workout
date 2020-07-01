@@ -12,6 +12,10 @@ class SessionsController < ApplicationController
         @site="home" 
     end 
 
+    def logbook 
+        @user = User.find(session[:user_id]) 
+    end 
+
     def new 
         #go to form to log in with name, password
         @user = User.new 

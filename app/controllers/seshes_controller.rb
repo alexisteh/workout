@@ -3,7 +3,8 @@ class SeshesController < ApplicationController
     def new 
         @sesh = Sesh.new  
         @gyms = Gym.all 
-        @workouts = Workout.applicable_workouts(session[:user_id])  
+        @user = User.find(session[:user_id]) 
+        @workouts = @user.applicable_workouts  
         @site="new_sesh" 
     end 
 
@@ -23,7 +24,8 @@ class SeshesController < ApplicationController
     def edit 
         @sesh = Sesh.find(params[:id]) 
         @gyms = Gym.all 
-        @workouts = Workout.applicable_workouts(session[:user_id])  
+        @user = User.find(session[:user_id]) 
+        @workouts = @user.applicable_workouts  
     end 
 
     def update 

@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   get '/exercises/edit', to: 'exercises#edit', as: 'edit_ex'
   patch '/exercises', to: 'exercises#update'
 
+  get '/logbook', to: 'sessions#logbook'
+
 end 
 
 # TODO: Tests how to access list of workout exercises

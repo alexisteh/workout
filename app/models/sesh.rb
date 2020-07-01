@@ -12,7 +12,7 @@ class Sesh < ApplicationRecord
     def workouts_list
         self.workouts.map(&:name).join(", ")  
     end 
-
+ 
     def workout_ids=(ids_array)
         ids_array.each_with_index do |id|
             unless id == nil || id == ""
@@ -28,6 +28,26 @@ class Sesh < ApplicationRecord
             seshworkout.order = index + 1
         }
     end
+
+    def duration 
+        self.sessionworkouts.sum{|seshwork| seshwork.workout.duration ||= 0 } 
+    end 
+
+    def in_past?
+        if self.time.strftime("%Y %m %d %H %M") <= Time.now.strftime("%Y %m %d %H %M")
+            return true 
+        else return false 
+        end 
+    end 
+
+    def in_future? 
+        if self.time.strftime("%Y %m %d %H %M") > Time.now.strftime("%Y %m %d %H %M")
+            return true 
+        else return false 
+        end 
+    end 
+ 
+    private 
 
     def has_a_workout? 
         if self.workouts.length == 0 

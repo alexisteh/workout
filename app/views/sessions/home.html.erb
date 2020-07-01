@@ -1,6 +1,5 @@
-<div class="hmrow"> 
 
-<div class="hmcolumn"> 
+<div class="hmsplit left"> 
 
 <h1 style="text-align:center"> Welcome to Workout, <%=@user.name%> !</h1> 
 
@@ -15,23 +14,13 @@ Upcoming sessions:
     <%=link_to "(delete)", delete_sesh_path(sesh) %> 
     </li>
   <%end%>
-</ul>
+</ul> 
 <%end%>
 
-<% if @user.past_seshes %>
-Past sessions: 
-<ul>
-  <%@user.past_seshes.each do |sesh| %>
-    <li> <%=sesh.time.strftime("%B %d %Y at %H:%M")%>, goal - <%=sesh.goals%><br/>
-    Workout routines: <%=sesh.workouts_list%> 
-    </li>
-  <%end%>
-</ul>
-<%end%>
 
 </div>
 
-<div class="hmcolumn"> 
+<div class="hmsplit right"> 
 <br/><br/><br/><br/><br/><br/>
 
 Your registered gyms: 
@@ -75,4 +64,3 @@ Register a new gym:
 
 </div> 
 
-</div>

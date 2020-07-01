@@ -1,0 +1,33 @@
+
+<div class="hmsplit left">
+
+<div class="box">
+
+<h1 style='text-align: center'>Congratulations!</h1>
+ <p style='text-align: center'><%=@user.sum_past_sesh_duration%><br/>
+ 
+ spent working out so far!</p>
+</div>
+
+<div class="box">
+
+<% if @user.past_seshes %>
+Past sessions: 
+<ul>
+  <%@user.past_seshes.each do |sesh| %>
+    <li> <%=sesh.time.strftime("%B %d %Y at %H:%M")%>, goal - <%=sesh.goals%><br/>
+    Workout routines: <%=sesh.workouts_list%> 
+    <%=link_to "(delete)", delete_sesh_path(sesh) %> 
+    </li>
+  <%end%>
+</ul>
+<%end%>
+
+
+</div> 
+
+</div>
+<div class="hmsplit right">
+
+
+</div>

@@ -1,0 +1,16 @@
+<%if flash[:message]%>
+    <ul> <%flash[:message].each do |error| %> 
+        <li style="color: red"> <%=error%> 
+        </li>
+        <%end%> 
+    </ul>
+<%end%> 
+
+<%=form_for @exercise, url: '/exercises', method: :patch do |f|%>
+    <%= f.hidden_field :id , value: @exercise.id %> 
+    <%=f.label :name%>
+    <%=f.text_field :name%><br/>
+    <%=f.label :category%>
+    <%=f.text_field :category%><br/>
+    <%=f.submit%>
+<%end%>

@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   
   get '/exercises', to: 'exercises#index' 
   post '/exercises/create', to: 'exercises#create' 
+  get '/exercises/delete', to: 'exercises#delete', as: 'delete_exercise'
+  get '/exercises/edit', to: 'exercises#edit', as: 'edit_ex'
+  patch '/exercises', to: 'exercises#update'
 
 end 
 

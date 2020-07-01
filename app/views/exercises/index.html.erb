@@ -4,7 +4,9 @@
 <h1>Personal Exercises</h1> 
 <ul>
     <%@priv_exercises.each do |ex| %>
-        <li> <%=ex.name%> (<%=ex.category%>)
+        <li> <%=ex.name%> (<%=ex.category%>) <br/>
+        <%=link_to "(edit)", edit_ex_path(id: ex.id) %> 
+        <%=link_to "(delete)", delete_exercise_path(id: ex.id) %>
         </li>
     <%end%>
 </ul>

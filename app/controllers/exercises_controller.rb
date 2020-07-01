@@ -19,6 +19,27 @@ class ExercisesController < ApplicationController
         end 
     end 
 
+    def delete 
+        @ex = Exercise.find(params[:id]) 
+        @ex.destroy 
+        redirect_to '/exercises' 
+    end 
+
+    def edit 
+        @exercise = Exercise.find(params[:id])
+    end 
+
+    def update
+        @exercise = Exercise.find(params[:exercise][:id])
+        @exercise.update(exercise_params)
+        if @exercise.valid?
+            @exercise.save
+            redirect_to '/exercises'
+        else 
+            flash[:message] = @exercise.errors.full_messages
+        end 
+    end 
+
     private 
 
     def exercise_params 

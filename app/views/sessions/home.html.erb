@@ -1,12 +1,15 @@
 
 <div class="hmsplit left"> 
 
-<h1 style="text-align:center"> Welcome to Workout, <%=@user.name%> !</h1> 
+<div class="box welcome">
+<h1> Welcome to Workout, <%=@user.name%>!</h1> 
+</div>
 
 
+<div class="box hmdetails">
+<h2>Upcoming Sessions</h2> <br/>
 <% if @user.future_seshes %>
-Upcoming sessions: 
-<ul>
+<ul> 
   <%@user.future_seshes.each do |sesh| %>
     <li> <%=sesh.time.strftime("%B %d %Y at %H:%M")%>, goal - <%=sesh.goals%><br/>
     Workout routines: <%=sesh.workouts_list%> <br/>
@@ -15,15 +18,21 @@ Upcoming sessions:
     </li>
   <%end%>
 </ul> 
+<%else%>
+No future sessions to display! 
 <%end%>
+</div>
+
+<div class="box hmdetails">
+<h2>Keep Pushing on!</h2>
+</div>
 
 
 </div>
-
 <div class="hmsplit right"> 
-<br/><br/><br/><br/><br/><br/>
 
-Your registered gyms: 
+<div class="box hmdetails">
+<h2> Your Gyms </h2>
 <ul> 
   <%@user.gyms_sort.each do |gym| %> 
     <li> <span style="color: green"><%=gym.name%></span> at <%=gym.address%> <br/> 
@@ -34,33 +43,37 @@ Your registered gyms:
   <%end%>
 </ul> 
 <br/>
-Register a new gym:
+
+</div>
+<div class="box hmdetails">
+<h2>Register New Gym</h2>
 <% if flash[:message] %>
 <ul>
     <%flash[:message].each do |message| %>
     <li style="color: red"><%=message%></li> 
     <%end%>
 </ul> 
-<%else%> <br/><br/>
 <%end%> 
 
 <%=form_for @gym, url: '/gyms', method: :post do |f| %>
-  <table>
+  <table width="100%"; padding="20px">
   <tr>
-  <td> <%=f.label :name%> </td>
+  <td style="text-align:right"> <%=f.label :name%> </td>
   <td> <%=f.text_field :name%> </td> 
   </tr>
   <tr>
-  <td> <%=f.label :address%> </td> 
+  <td style="text-align:right"> <%=f.label :address%> </td> 
   <td> <%=f.text_field :address%> </td> 
   </tr>
   <tr>
-  <td> <%=f.label :list_of_equipment%> </td> 
+  <td style="text-align:right"><%=f.label :list_of_equipment%> </td> 
   <td> <%=f.text_field :list_of_equipment%> </td> 
   </tr>
   <td> </td> <td> <%=f.submit%> </td> 
   <table>
 <%end%>
+
+</div>
 
 </div> 
 

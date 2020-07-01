@@ -61,17 +61,14 @@ h1 {
   text-align: center;
 } 
 
- /* styling for login form */
-
-
 /* styling for home page */
 
-.hmsplit {
+.hmsplit { 
   height: 100%;
   width: 50%;
   position: fixed;
   z-index: 1;
-  top: 80px;
+  top: 100px;
   overflow-x: hidden;
   padding-bottom: 80px
 }
@@ -88,13 +85,29 @@ h1 {
  /* styling for floating boxes */
 
 .box {
-  margin: 20px; 
+  margin: 30px; 
   border-radius: 7px; 
   padding: 20px; 
-  display: block; 
-  background-color: lightblue; 
+} 
+
+.welcome{
+  background-color: #4155A2; 
 }
 
+.welcome h1 {
+  text-align: center;
+  color: white; 
+}
+
+.hmdetails{
+  background-color: #F0E1BB; 
+}
+
+.hmdetails h2{
+  line-height: 0.1em;
+  padding: 2px;
+  text-align: center;
+  color: #4155A2; }
 
  /* styling for new trainings, name and desc  */
 .nwtrcontainter {

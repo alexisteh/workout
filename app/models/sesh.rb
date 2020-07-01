@@ -26,8 +26,8 @@ class Sesh < ApplicationRecord
     def set_workout_order
         self.sessionworkouts.each_with_index{ |seshworkout, index|
             # workoutsesh = self.sessionworkouts.find_by(workout_id: workout.id)
-            seshworkout.order = index + 1
-        }
+            seshworkout.update(order: index + 1)
+        } 
     end
 
     def duration 

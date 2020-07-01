@@ -29,6 +29,8 @@ class Workout < ApplicationRecord
         Workout.all.select{|workout| workout.user_id == userid || workout.user_id == User.first.id }
     end 
 
+
+
     private 
     
     # def has_exercises?

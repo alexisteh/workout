@@ -3,6 +3,7 @@ class CreateSessionworkouts < ActiveRecord::Migration[6.0]
     create_table :sessionworkouts do |t|
       t.integer :sesh_id
       t.integer :workout_id
+      t.integer :order
     end
   end
 end

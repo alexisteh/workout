@@ -12,6 +12,7 @@ class SeshesController < ApplicationController
         @sesh.user_id = session[:user_id] 
         if @sesh.valid?  
             @sesh.save 
+            @sesh.set_workout_order
             redirect_to '/home' 
         else 
             flash[:message] = @sesh.errors.full_messages 

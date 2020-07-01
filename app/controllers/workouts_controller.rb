@@ -9,6 +9,7 @@ class WorkoutsController < ApplicationController
     def create 
         @workout = Workout.new(workout_someparams)
         @workout.update(user_id: session[:user_id]) 
+        byebug
         if @workout.valid? 
             @workout.save 
             @workout.make_joiner(workoutexercise_params) 

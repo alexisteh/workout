@@ -14,13 +14,20 @@ class Sesh < ApplicationRecord
     end 
 
     def workout_ids=(ids_array)
-        ids_array.each do |id|
+        ids_array.each_with_index do |id|
             unless id == nil || id == ""
                 workout = Workout.find(id) 
                 self.workouts << workout 
             end 
         end 
     end 
+
+    def set_workout_order
+        self.sessionworkouts.each_with_index{ |seshworkout, index|
+            # workoutsesh = self.sessionworkouts.find_by(workout_id: workout.id)
+            seshworkout.order = index + 1
+        }
+    end
 
     def has_a_workout? 
         if self.workouts.length == 0 

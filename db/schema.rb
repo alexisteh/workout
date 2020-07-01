@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_06_29_155521) do
   create_table "sessionworkouts", force: :cascade do |t|
     t.integer "sesh_id"
     t.integer "workout_id"
+    t.integer "order"
   end
 
   create_table "users", force: :cascade do |t|

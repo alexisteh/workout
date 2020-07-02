@@ -29,15 +29,25 @@ workout_1 = Workout.create(name: "Gentle Cardio", description: "A regular cardio
 workout_2 = Workout.create(name: "Leg Day", description: "High-intensity leg workout to do at home", user_id: usr_0.id) 
 workout_3 = Workout.create(name: "Mindful Relaxation", description: "Low-intensity relaxation", user_id: usr_0.id) 
 
-exercise_1 = Exercise.create(name: "situps", category: "abdominal", user_id: usr_0.id) 
-exercise_2 = Exercise.create(name: "yoga", category: "mindfulness", user_id: usr_0.id) 
-exercise_3 = Exercise.create(name: "bicep curls", category: "arms", user_id: usr_0.id)   
-exercise_4 = Exercise.create(name: "push ups", category: "arms", user_id: usr_0.id) 
-exercise_5 = Exercise.create(name: "biking", category: "cardio", user_id: usr_0.id) 
-exercise_6 = Exercise.create(name: "stretches", category: "cool down", user_id: usr_0.id)    
-exercise_7 = Exercise.create(name: "running at 6mph", category: "cardio", user_id: usr_0.id)    
-exercise_8 = Exercise.create(name: "squats", category: "legs", user_id: usr_0.id) 
-exercise_9 = Exercise.create(name: "lunges", category: "legs", user_id: usr_0.id)    
+excat_1 = Exercisecat.create(name: "Cardio")
+excat_2 = Exercisecat.create(name: "Mindfulness")
+excat_3 = Exercisecat.create(name: "Arms")
+excat_4 = Exercisecat.create(name: "Core")
+excat_5 = Exercisecat.create(name: "Legs")
+excat_6 = Exercisecat.create(name: "Warm Up, Cool Down")
+
+
+exercise_1 = Exercise.create(name: "situps", exercisecat_id: excat_4.id, user_id: usr_0.id) 
+exercise_2 = Exercise.create(name: "yoga", exercisecat_id: excat_2.id, user_id: usr_0.id) 
+exercise_3 = Exercise.create(name: "bicep curls", exercisecat_id: excat_3.id, user_id: usr_0.id)   
+exercise_4 = Exercise.create(name: "push ups", exercisecat_id: excat_3.id, user_id: usr_0.id) 
+exercise_5 = Exercise.create(name: "biking", exercisecat_id: excat_1.id, user_id: usr_0.id) 
+exercise_6 = Exercise.create(name: "stretches", exercisecat_id: excat_6.id, user_id: usr_0.id)    
+exercise_7 = Exercise.create(name: "jogging", exercisecat_id: excat_1.id, user_id: usr_0.id)    
+exercise_8 = Exercise.create(name: "squats", exercisecat_id: excat_5.id, user_id: usr_0.id) 
+exercise_9 = Exercise.create(name: "lunges", exercisecat_id: excat_5.id, user_id: usr_0.id)    
+
+
 
 we_1 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_1.id, reps: 10,sets: 5, duration: 180)
 we_2 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_5.id, reps: 1,sets: 1, duration: 1200)

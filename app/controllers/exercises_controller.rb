@@ -4,12 +4,20 @@ class ExercisesController < ApplicationController
         @pub_exercises = Exercise.all.select{|exercise| exercise.user.id == User.first.id} 
         @priv_exercises = Exercise.all.select{|exercise| exercise.user_id == session[:user_id]} 
         @exercise = Exercise.new 
+        @exercisecats = Exercisecat.all
         @site = "manage_exercises"
     end 
 
     def create
-        @exercise = Exercise.new(exercise_params) 
-        @exercise.update(user_id: session[:user_id]) 
+        @exercise = Exercise.new 
+        @exercise.user_id = session[:user_id] 
+        @exercise.update(name: exercise_params[:name]) 
+        if exercise_params[:exercisecat_id] == "" 
+            newex = Exercisecat.find_or_create_by(name: exercise_params[:exercisecat]) 
+            @exercise.update(exercisecat_id: newex.id) 
+        else 
+            @exercise.update(exercisecat_id: exercise_params[:exercisecat_id])  
+        end 
         if @exercise.valid? 
             @exercise.save 
             redirect_to '/exercises' 
@@ -43,6 +51,6 @@ class ExercisesController < ApplicationController
     private 
 
     def exercise_params 
-        params.require(:exercise).permit(:name, :category) 
+        params.require(:exercise).permit(:name, :exercisecat_id, :exercisecat) 
     end  
 end 

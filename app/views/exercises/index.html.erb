@@ -11,7 +11,7 @@
 <h2>Personal Exercises</h2> 
 <ul>
     <%@priv_exercises.each do |ex| %>
-        <li> <%=ex.name%> (<%=ex.category%>) <br/>
+        <li> <%=ex.name%> (<%=ex.exercisecat.name%>) <br/>
         <%=link_to "(edit)", edit_ex_path(id: ex.id) %> 
         <%=link_to "(delete)", delete_exercise_path(id: ex.id) %>
         </li>
@@ -44,8 +44,13 @@
     </tr>
     <tr>
      <td style="text-align:right">  <%=f.label :category%> </td>
-    <td><%=f.text_field :category%> </td>
-    </tr>
+    <td><%=f.collection_select :exercisecat_id, @exercisecats, :id, :name, {include_blank: 'New Category'} %> </td>
+    </tr> 
+    <tr>  
+    <td style="text-align:right">  <%=f.label "Or add a new category"%> </td>
+        <td> <%=f.text_field :exercisecat %> </td>
+    </tr> 
+
     <tr><td> </td> <td><%=f.submit%></td></tr>
     </table>
 <%end%>
@@ -56,7 +61,7 @@
 <h2>Public Exercises</h2> 
 <ul>
     <%@pub_exercises.each do |ex| %>
-        <li> <%=ex.name%> (<%=ex.category%>) 
+        <li> <%=ex.name%> (<%=ex.exercisecat.name%>)
         </li>
     <%end%>
 </ul> 

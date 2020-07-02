@@ -5,7 +5,8 @@ class CreateWorkoutexercises < ActiveRecord::Migration[6.0]
       t.integer :exercise_id 
       t.integer :reps 
       t.integer :sets 
-      t.integer :duration 
+      t.integer :duration
+      t.boolean :activated, default: false
     end
   end
 end

@@ -48,13 +48,13 @@ h1 {
 /* styling for page 2 column split */
 
 .hmsplit { 
-  height: 73%;
+  height: 78%;
   width: 50%;
   position: fixed;
   z-index: 1;
-  top: 100px;
+  top: 70px;
   overflow-x: hidden;
-  padding-bottom: 50px; 
+  padding-bottom: 5px; 
 }
 
 .left {
@@ -110,6 +110,21 @@ h1 {
   padding: 2px;
   text-align: center;
   color: #4155A2; }
+
+.link  {
+  width: 40px;
+  height: 9px;
+  background: #4E9CAF;
+  padding: 0.5px;
+  padding-left: 6px;
+  padding-right: 6px; 
+  text-align: center;
+  color: white;
+  text-decoration: none; 
+}
+
+
+
 
  /* styling for login page links */
 
@@ -189,7 +204,7 @@ h1 {
     margin: auto; 
     overflow: hidden; 
     padding-top: 10px; 
-    padding-bottom: 20px; 
+    padding-bottom: 5px; 
     display: flex; 
     justify-content: center
   } 

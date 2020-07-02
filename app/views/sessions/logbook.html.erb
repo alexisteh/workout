@@ -11,13 +11,17 @@
 <div class="box hmdetails">
 
 <% if @user.past_seshes %>
-Past sessions: 
+<h2>Past sessions: </h2>
 <ul>
   <%@user.past_seshes.each do |sesh| %>
-    <li> <%=sesh.time.strftime("%B %d %Y at %H:%M")%>, goal - <%=sesh.goals%><br/>
-    Workout routines: <%=sesh.workouts_list%> 
-    <%=link_to "(delete)", delete_sesh_path(sesh) %> 
-    </li>
+      <li> 
+      <span class="bold"> <%=sesh.time.strftime("%B %d %Y at %H:%M")%></span>
+      <span style="float: right"> 
+      <%=link_to "DELETE", delete_sesh_path(sesh), class: "link delete"  %> 
+      </span> 
+      <br/>Goal: <%=sesh.trim_goals%>
+      <br/>Workouts: <%=sesh.workouts_list%> 
+      </li>
   <%end%>
 </ul>
 <%end%>

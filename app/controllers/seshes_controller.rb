@@ -46,6 +46,11 @@ class SeshesController < ApplicationController
         redirect_to '/home' 
     end 
 
+    def activate 
+        @sesh = Sesh.find(params[:id]) 
+        @user = User.find(session[:user_id]) 
+    end 
+
     private 
 
     def sesh_params 

@@ -47,6 +47,15 @@ class Sesh < ApplicationRecord
         else return false 
         end 
     end 
+
+
+    def trim_goals 
+        unless self.goals.split("") == self.goals.split("").shift(40)
+            return self.goals.split("").shift(40).push("...").join("")
+        end 
+        return self.goals 
+    end 
+
  
     private 
 
@@ -63,7 +72,6 @@ class Sesh < ApplicationRecord
             errors.add(:time, "must be in the future!")
         end 
     end 
-
 
     # Create a calendar with an event (standard method)
     def create_calendar

@@ -9,11 +9,16 @@
   <h2>Active Sessions</h2>
   <ul> 
     <%@user.active_seshes.each do |sesh| %>
-      <li> <span class="bold"> <%=sesh.time.strftime("%B %d %Y at %H:%M")%></span>
-      , goal - <%=sesh.goals%><br/>
-      Workout routines: <%=sesh.workouts_list%> <br/>
-      <%=link_to "(edit)", edit_sesh_path(sesh) %> 
-      <%=link_to "(delete)", delete_sesh_path(sesh) %> 
+      <li> 
+      <span class="bold"> <%=sesh.time.strftime("%B %d %Y at %H:%M")%></span>
+      <span style="float: right"> 
+      <%=link_to "ACTIVATE", activate_sesh_path(sesh), class: "link activate"  %> 
+      <%=link_to "EDIT", edit_sesh_path(sesh), class: "link edit"  %> 
+      <%=link_to "DELETE", delete_sesh_path(sesh), class: "link delete"  %> 
+      </span> 
+      <br/>At: <span style="color: #2E6137; font-family: 'Montserrat Bold'"><%=sesh.gym.name%></span>
+      <br/>Goal: <%=sesh.trim_goals%>
+      <br/>Workouts: <%=sesh.workouts_list%> 
       </li>
     <%end%> 
   </ul> 
@@ -26,11 +31,15 @@
   <% if @user.future_seshes %>
   <ul> 
     <%@user.future_seshes.each do |sesh| %>
-      <li> <span class="bold"> <%=sesh.time.strftime("%B %d %Y at %H:%M")%></span>
-      , goal - <%=sesh.goals%><br/>
-      Workout routines: <%=sesh.workouts_list%> <br/>
-      <%=link_to "(edit)", edit_sesh_path(sesh) %> 
-      <%=link_to "(delete)", delete_sesh_path(sesh) %> 
+      <li> 
+      <span class="bold"> <%=sesh.time.strftime("%B %d %Y at %H:%M")%></span>
+      <span style="float: right"> 
+      <%=link_to "EDIT", edit_sesh_path(sesh), class: "link edit"  %> 
+      <%=link_to "DELETE", delete_sesh_path(sesh), class: "link delete"  %> 
+      </span> 
+      <br/>At: <span style="color: #2E6137; font-family: 'Montserrat Bold'"><%=sesh.gym.name%></span>
+      <br/>Goal: <%=sesh.trim_goals%>
+      <br/>Workouts: <%=sesh.workouts_list%> 
       </li>
     <%end%>
   </ul> 
@@ -38,7 +47,6 @@
   No future sessions to display! 
   <%end%>
   </div>
-
 
   <div class="box hmdetails">
   <h2>Keep Pushing on!</h2>
@@ -59,7 +67,6 @@
   <br/>a
   <br/>a
   </div>
-
 </div>
 
 
@@ -69,10 +76,13 @@
   <h2> Your Gyms </h2>
   <ul> 
     <%@user.gyms_sort.each do |gym| %> 
-      <li> <span style="color: green"><%=gym.name%></span> at <%=gym.address%> <br/> 
-      Equipment: <span style="color: orange"><%=gym.list_of_equipment%></span> 
-      <%=link_to "(edit)", edit_gym_path(id: gym.id) %> 
-      <%=link_to "(delete)", delete_gym_path(id: gym.id) %> 
+      <li> <span style="color: #2E6137; font-family: 'Montserrat Bold'"><%=gym.name%></span> at <%=gym.address%>
+      <span style="float: right"> 
+      <%=link_to "EDIT", edit_gym_path(id: gym.id), class: "link edit" %> 
+      <%=link_to "DELETE", delete_gym_path(id: gym.id), class: "link delete" %> 
+      </span> <br/>
+      Equipment: <span style="color: #D9982C"><%=gym.list_of_equipment%></span> 
+
       </li> 
     <%end%>
   </ul> 

@@ -10,11 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_29_155521) do
+ActiveRecord::Schema.define(version: 2020_07_02_162807) do
+
+  create_table "exercisecats", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "exercises", force: :cascade do |t|
     t.string "name"
-    t.string "category"
+    t.integer "exercisecat_id"
     t.integer "user_id"
   end
 

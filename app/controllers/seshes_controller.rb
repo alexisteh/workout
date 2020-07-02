@@ -50,6 +50,9 @@ class SeshesController < ApplicationController
     def activate 
         @sesh = Sesh.find(params[:id]) 
         @user = User.find(session[:user_id]) 
+        
+        @minutes = 60
+        @date_str = "Jan 5, 2021 15:37:25"
     end 
 
     private 

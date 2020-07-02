@@ -31,7 +31,13 @@ class Sesh < ApplicationRecord
     end
 
     def duration 
-        self.sessionworkouts.sum{|seshwork| seshwork.workout.duration ||= 0 } 
+        sum = 0 
+        self.sessionworkouts.each do |seshwork| 
+            if seshwork.workout && seshwork.workout.duration 
+                sum += seshwork.workout.duration 
+            end 
+        end 
+        return sum 
     end  
 
     def in_past?

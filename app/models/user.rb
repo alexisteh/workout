@@ -40,6 +40,32 @@ class User < ApplicationRecord
         end 
     end 
 
+    def workout_history 
+        if self.past_seshes  
+            array = self.past_seshes.map{|sesh| sesh.workouts.map(&:name)}.flatten
+            uniq = array.uniq 
+            hash = {}
+            uniq.each do |uniq_workout|
+                hash[uniq_workout] = array.count(uniq_workout) 
+            end 
+        end 
+        hash 
+    end 
+
+    def most_popular_workout 
+        max = self.workout_history.values.max 
+        all = self.workout_history.select{|key,val| val == max }
+        return [max, all.keys] 
+    end 
+
+    def most_popular_workout_num 
+        self.most_popular_workout[0] 
+    end 
+    
+    def most_popular_workouts
+        self.most_popular_workout[1].join(", ")
+    end 
+
     def sum_past_sesh_duration 
         if self.past_seshes 
             seconds = self.past_seshes.sum{|sesh| sesh.duration}

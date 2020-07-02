@@ -14,7 +14,7 @@
  *= require_self
  */
 
-  /* defining fonts */
+ /* defining fonts */
 
  @font-face {  
    font-family: 'Montserrat Bold';  
@@ -118,6 +118,8 @@ h1 {
   font-family: 'Montserrat Medium'; 
 }
 
+ /* styling for link buttons */
+
 .link  {
   width: 40px;
   height: 9px;
@@ -130,8 +132,7 @@ h1 {
   text-decoration: none; 
 }
 
-.log {
-}
+ /* styling for logbook stats */
 
 .stat {
   text-align: center; 
@@ -197,6 +198,7 @@ h1 {
 }
 
  /* styling for new trainings, name and desc  */
+
 .nwtrcontainter {
   display: table-row; 
 }
@@ -212,6 +214,7 @@ h1 {
 }
 
  /* styling for new trainings, exercises  */
+
 .nwtrexcontainer {
   padding: 14px;
     display: inline-grid;
@@ -220,8 +223,7 @@ h1 {
     grid-row-gap: 10px;
   }
 
-
- /* styling for top navigation bar  */
+/* styling for top navigation bar  */
 .topnav {
     margin: auto; 
     overflow: hidden; 
@@ -262,6 +264,8 @@ h1 {
 .topnav a.active {
   color: #4155A2;
 }
+
+ /* styling for footer */
 
 .foot {
   position: fixed; 

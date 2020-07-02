@@ -42,7 +42,7 @@ class SeshesController < ApplicationController
 
     def delete 
         @sesh = Sesh.find(params[:id]) 
-        @sesh.sessionworkouts
+        @sesh.sessionworkouts.destroy_all 
         @sesh.destroy 
         redirect_to '/home'
     end 

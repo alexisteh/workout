@@ -11,9 +11,14 @@
 <h2>Personal Exercises</h2> 
 <ul>
     <%@priv_exercises.each do |ex| %>
-        <li> <%=ex.name%> (<%=ex.exercisecat.name%>) <br/>
-        <%=link_to "(edit)", edit_ex_path(id: ex.id) %> 
-        <%=link_to "(delete)", delete_exercise_path(id: ex.id) %>
+        <li>
+        <span class="bold"> <%=ex.name%></span> 
+        <span style="float: right"> 
+        <%=link_to "EDIT", edit_ex_path(id: ex.id), class: "link edit"%> 
+        <%=link_to "DELETE", delete_exercise_path(id: ex.id), class: "link delete"%>
+        </span> 
+        <br/>Category: <%=ex.exercisecat.name%>
+
         </li>
     <%end%>
 </ul>

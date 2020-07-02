@@ -38,14 +38,14 @@
       <%=link_to "EDIT", edit_sesh_path(sesh), class: "link edit"  %> 
       <%=link_to "DELETE", delete_sesh_path(sesh), class: "link delete"  %> 
       </span> 
-     <br/>At: <span style="color: #2E6137; font-family: 'Montserrat Bold'">
+     <br/><span style="color: #2E6137; font-family: 'Montserrat Bold'">
         <%if sesh.gym %><%=sesh.gym.name%><%else%>Unassigned<%end%></span>      <br/>Goal: <%=sesh.trim_goals%>
       <br/>Workouts: <%=sesh.workouts_list%> 
       </li>
     <%end%>
   </ul> 
   <%else%>
-  No future sessions to display! 
+  <span style="float: center" >No future sessions to display! </span>
   <%end%>
   </div>
 

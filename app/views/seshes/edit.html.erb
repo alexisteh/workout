@@ -12,7 +12,7 @@
 </ul>
 <%end%> 
 
-<%=form_for @sesh, url: "/seshes", method: :post do |f| %>
+<%=form_for @sesh, url: "/seshes/update", method: :post do |f| %>
     <%= f.hidden_field :id , value: @sesh.id %> 
     <%=f.label "Select time:" %> 
     <%=f.datetime_select :time, minute_step: 10 %> 

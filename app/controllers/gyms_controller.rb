@@ -30,6 +30,10 @@ class GymsController < ApplicationController
 
     def delete 
         @gym = Gym.find(params[:id]) 
+        @gym.seshes.each do |sesh| 
+            sesh.update(gym_id: nil) 
+            sesh.save 
+        end 
         @gym.destroy 
         redirect_to '/home'
     end 

@@ -15,21 +15,20 @@ Rails.application.routes.draw do
   get '/seshes/new', to: 'seshes#new'
   post '/seshes', to: 'seshes#create'
   get '/seshes/:id/edit', to: 'seshes#edit', as: 'edit_sesh' 
-  post '/seshes', to: 'seshes#update' 
+  post '/seshes/update', to: 'seshes#update' 
   get '/seshes/:id/delete',to: 'seshes#delete', as: 'delete_sesh' 
   get '/sesh/:id/activate', to: 'seshes#activate', as: "activate_sesh"
 
   get '/workouts/new', to: 'workouts#new' 
   post '/workouts', to: 'workouts#create' 
+  get '/workouts', to: 'workouts#index' 
+  get '/workouts/delete', to: 'workouts#delete', as: 'delete_workout'
 
   post '/gyms', to: 'gyms#create' 
   get '/gyms/edit', to: 'gyms#edit', as: 'edit_gym'
   patch '/gyms', to: 'gyms#update'
   get '/gyms/delete', to: 'gyms#delete', as: 'delete_gym'
 
-  get '/workouts', to: 'workouts#index' 
-  get '/workouts/delete', to: 'workouts#delete', as: 'delete_workout'
- 
   get '/workoutexercises/edit', to: 'workoutexercises#edit', as: 'edit_exercise'
   get '/workoutexercises/:id', to: 'workoutexercises#show'
   patch '/workoutexercises', to: 'workoutexercises#update' 

@@ -9,7 +9,7 @@
 
 <div class="box hmdetails">
 <h2>Personal Exercises</h2> 
-<ul>
+<ul style="padding-left: 50px">
     <%@priv_exercises.each do |ex| %>
         <li>
         <span class="bold"> <%=ex.name%></span> 
@@ -51,7 +51,7 @@
     <td><%=f.collection_select :exercisecat_id, @exercisecats, :id, :name, {include_blank: 'New Category'} %> </td>
     </tr> 
     <tr>  
-    <td style="text-align:right">  <%=f.label "Or add a new category"%> </td>
+    <td style="text-align:right">  <%=f.label "Or Add New Category"%> </td>
         <td> <%=f.text_field :exercisecat %> </td>
     </tr> 
 
@@ -63,9 +63,11 @@
 
 <div class="box hmdetails">
 <h2>Public Exercises</h2> 
-<ul>
+<ul style="padding-left: 50px">
     <%@pub_exercises.each do |ex| %>
-        <li> <%=ex.name%> (<%=ex.exercisecat.name%>)
+        <li> 
+        <span class="bold"> <%=ex.name%></span> 
+        <br/> <span style="color:#224A20">Category: <%=ex.exercisecat.name%></span>
         </li>
     <%end%>
 </ul> 

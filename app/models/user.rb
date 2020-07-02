@@ -33,12 +33,12 @@ class User < ApplicationRecord
     end 
 
     def applicable_workouts 
-        # gives array of workouts available to user 
+        # gives array of workouts available to user (including public)
         Workout.all.select{|workout| workout.user_id == self.id || workout.user_id == User.first.id }
     end 
 
     def number_total_past_seshes 
-        # gives user's total number of sessions in all time  
+        # gives user's total number of sessions in all time (logbook)
         if self.past_seshes 
             return self.past_seshes.length 
         else return 0 
@@ -46,6 +46,7 @@ class User < ApplicationRecord
     end 
 
     def number_past_seshes_in_week 
+        # gives user's total number of sessions in past 7 days (logbook)
         if self.past_seshes 
             all = self.past_seshes.select{|sesh| sesh.time - Time.now < 604800 && sesh.time - Time.now > -604800}
             return all.length 
@@ -53,6 +54,7 @@ class User < ApplicationRecord
     end 
 
     def number_past_seshes_in_month 
+        # gives user's total number of sessions in past 4 weeks (logbook)
         if self.past_seshes 
             all = self.past_seshes.select{|sesh| sesh.time - Time.now < 2419200 && sesh.time - Time.now > -2419200}
             return all.length 
@@ -60,6 +62,7 @@ class User < ApplicationRecord
     end 
 
     def workout_history 
+        # gives hash of user's workout => times done 
         if self.past_seshes  
             array = self.past_seshes.map{|sesh| sesh.workouts.map(&:name)}.flatten
             uniq = array.uniq 
@@ -71,27 +74,38 @@ class User < ApplicationRecord
         end 
     end 
 
-    def most_popular_workout 
-        if self.workout_history 
-            max = self.workout_history.values.max 
-            all = self.workout_history.select{|key,val| val == max }
-            return [max, all.keys] 
+    def most_popular_workouts
+        hash = self.workout_history
+        maxes = hash.values.max(3) 
+        hash.each do |key,val| 
+            unless maxes.include?(val)
+                hash.delete(key) 
+            end 
         end 
+        return hash.sort_by{|key,val| val}.reverse
     end 
 
-    def most_popular_workout_num 
-        if self.most_popular_workout
-            return self.most_popular_workout[0] 
-        else return 0
-        end 
-    end 
+    # def most_popular_workout 
+    #     if self.workout_history 
+    #         max = self.workout_history.values.max 
+    #         all = self.workout_history.select{|key,val| val == max }
+    #         return [max, all.keys] 
+    #     end 
+    # end 
+
+    # def most_popular_workout_num 
+    #     if self.most_popular_workout
+    #         return self.most_popular_workout[0] 
+    #     else return 0
+    #     end 
+    # end 
     
-    def most_popular_workouts
-        if self.most_popular_workout
-            self.most_popular_workout[1].join(", ")
-        else return "No Stats to Display"
-        end 
-    end 
+    # def most_popular_workouts
+    #     if self.most_popular_workout
+    #         self.most_popular_workout[1].join(", ")
+    #     else return "No Stats to Display"
+    #     end 
+    # end 
 
     def exercise_history  
         if self.past_seshes
@@ -128,10 +142,10 @@ class User < ApplicationRecord
 
     def sum_past_sesh_duration 
         if self.past_seshes 
-            seconds = self.past_seshes.sum{|sesh| sesh.duration}
-            hour = seconds / 3600 
-            min = (seconds % 3600)/60
-            "#{hour} hours, #{min} minutes" 
+            total_minutes = self.past_seshes.sum{|sesh| sesh.duration}
+            minutes = total_minutes % 60 
+            hours = total_minutes / 60
+            "#{hours} hours, #{minutes} minutes" 
         else return 0 
         end 
     end 

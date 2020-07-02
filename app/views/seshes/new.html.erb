@@ -13,23 +13,31 @@
 <%end%> 
 
 <%=form_for @sesh, url: '/seshes', method: :post do |f| %>
-    <%=f.label "Select time:" %>
-    <%=f.datetime_select :time, minute_step: 10 %> 
-    <br/>
-    <%=f.label "Set your workout goal:" %>
-    <%=f.text_field :goals , size: 50 %> 
-    <br/>
-    <%=f.label "Select your gym:" %>
-    <%=f.collection_select :gym_id , @gyms, :id, :name %> 
-    <br/>
+    <table width=50%>
+    <tr>
+    <td style="text-align:right"> <%=f.label "Select time:" %></td>
+    <td><%=f.datetime_select :time, minute_step: 10 %> </td>
+    </tr>
+    <tr>
+    <td style="text-align:right"> <%=f.label "Set your workout goal:" %></td>
+    <td><%=f.text_field :goals , size: 50 %> </td>
+    </tr>
+    <tr>
+    <td style="text-align:right"> <%=f.label "Select your gym:" %></td>
+    <td> <%=f.collection_select :gym_id , @gyms, :id, :name %> </td>
+    </tr>
+    <tr> <td></td><td>
     <%=f.label "Select workout routines to cover in this session:"%> <br/>
     <%=f.collection_check_boxes :workout_ids, @workouts, :id, :name do |e| %>
         <div class="exercisechecks"> 
             <%= e.check_box %> <%= e.label { e.text } %> <br/>
         </div> 
     <%end%>
-    <br/> 
-    <%=f.submit%> 
+    </td>
+    </tr><tr><td></td><td>
+    <%=f.submit%> </td> 
+    </tr>
+        </table> 
 <%end%>
 
 </div>

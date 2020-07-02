@@ -9,14 +9,24 @@ class WorkoutsController < ApplicationController
     def create 
         @workout = Workout.new(workout_someparams)
         @workout.update(user_id: session[:user_id]) 
-        if @workout.valid? 
-            @workout.save 
-            @workout.make_joiner(workoutexercise_params) 
-            @workout.save 
-            redirect_to '/workouts' 
+        unless @workout.valid? 
+            flash[:message] = @workout.errors.full_messages 
+            return redirect_to '/workouts/new' 
+        end 
+        @workout.save 
+        if @workout.make_joiner(workoutexercise_params) == "worked"  
+            if @workout.exercises == [] 
+                flash[:message] = ["Workouts need at least one exercise!"]
+                @workout.destroy 
+                return redirect_to '/workouts/new' 
+            else 
+                @workout.save 
+                return redirect_to '/workouts' 
+            end 
         else 
-            flash[:message] = @workout.errors.full_messages
-            redirect_to '/workouts/new' 
+            flash[:message] = @workout.make_joiner(workoutexercise_params) 
+            @workout.destroy 
+            return redirect_to '/workouts/new' 
         end 
     end 
 

@@ -66,5 +66,19 @@
 
     </div>
 
+<h3> Change Workout Order </h3>
+<h5>
+<%= form_with(url: "/sessionworkouts", method: "patch") do %> 
+    <%= hidden_field(:sesh, :id) %> 
+    <% @sesh_workouts.each{ |sesh_wkt|%>
+        <%= label_tag(:sesh_wkt, "#{sesh_wkt.workout.name}") %>
+        <%= number_field(:sesh_wkt) %>
+        <br>
+    <% } %>
+    <%= submit_tag("Update Order") %>
+<% end %>
+
+</h5>
+
 <%end%>
 </div>

@@ -48,7 +48,7 @@ h1 {
 /* styling for page 2 column split */
 
 .hmsplit { 
-  height: 78%;
+  height: 80%;
   width: 50%;
   position: fixed;
   z-index: 1;
@@ -210,7 +210,8 @@ h1 {
     padding-top: 10px; 
     padding-bottom: 5px; 
     display: flex; 
-    justify-content: center
+    justify-content: center;
+    height: 10%;
   } 
 
 .topnav a { 
@@ -250,10 +251,10 @@ h1 {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 6%; 
-  background-color:  #F2F0EB;
+  height: 5%; 
+  background-color:  #4155A2;
   text-align: center;
   font-family: 'Montserrat Bold';
   font-size: 30px;
-  color: #706E69; 
+  color: #F0E1BB; 
 } 

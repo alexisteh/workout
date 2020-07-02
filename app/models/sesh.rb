@@ -32,7 +32,7 @@ class Sesh < ApplicationRecord
 
     def duration 
         self.sessionworkouts.sum{|seshwork| seshwork.workout.duration ||= 0 } 
-    end 
+    end  
 
     def in_past?
         if self.time.strftime("%Y %m %d %H %M") <= Time.now.strftime("%Y %m %d %H %M")
@@ -47,7 +47,6 @@ class Sesh < ApplicationRecord
         else return false 
         end 
     end 
-
 
     def trim_goals 
         unless self.goals.split("") == self.goals.split("").shift(40)

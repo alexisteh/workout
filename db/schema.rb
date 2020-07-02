@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_07_02_162807) do
     t.string "name"
     t.string "address"
     t.string "list_of_equipment"
-    t.integer "user_id"
+    t.integer "user_id" 
   end
 
   create_table "seshes", force: :cascade do |t|

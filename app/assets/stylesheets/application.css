@@ -21,6 +21,11 @@
    src: url('Montserrat-Bold.ttf');
   }
 
+  @font-face {  
+    font-family: 'Montserrat Medium';  
+    src: url('Montserrat-Medium.ttf');
+   }
+
 @font-face {  
   font-family: 'Montserrat Regular';  
   src: url('Montserrat-Regular.ttf');
@@ -109,7 +114,9 @@ h1 {
   line-height: 0.1em;
   padding: 2px;
   text-align: center;
-  color: #4155A2; }
+  color: #4155A2; 
+  font-family: 'Montserrat Medium'; 
+}
 
 .link  {
   width: 40px;
@@ -126,9 +133,6 @@ h1 {
 .log {
   height: 50px; 
 }
-
-
-
 
  /* styling for login page links */
 

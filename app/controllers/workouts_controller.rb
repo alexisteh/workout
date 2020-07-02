@@ -29,6 +29,7 @@ class WorkoutsController < ApplicationController
     def delete 
         @workout = Workout.find(params[:id]) 
         @workout.sessionworkouts.destroy_all 
+        @workout.workoutexercises.destroy_all 
         @workout.destroy 
         redirect_to '/workouts' 
     end 

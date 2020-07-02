@@ -29,6 +29,13 @@ class Workout < ApplicationRecord
         self.workoutexercises.sum{|workex| workex.duration||= 0}
     end 
 
+    def trim_description 
+        unless self.description.split("") == self.description.split("").shift(40)
+            return self.description.split("").shift(50).push("...").join("")
+        end 
+        return self.description 
+    end 
+
 
     private 
     

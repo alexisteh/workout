@@ -12,8 +12,14 @@
 
 <ul>
 <%@priv_workouts.each do |workout|%>
-    <li> <%= link_to  workout.name, "/workoutexercises/#{workout.id}"%> <%= link_to "(delete)", delete_workout_path(id: workout.id) %> <br/>
-    <%= workout.list_exercises%> 
+    <li> 
+    <span class="bold"><%=workout.name%> </span>
+    <span style="float: right"> 
+     <%= link_to  "EDIT", "/workoutexercises/#{workout.id}", class: "link edit" %>
+    <%= link_to "DELETE", delete_workout_path(id: workout.id), class: "link delete" %> <br/>
+    </span>
+    <br/><%= workout.list_exercises%> 
+    <br/><%= workout.trim_description%>  
     </li>
 <%end%> 
 <ul> 
@@ -28,7 +34,7 @@
 
 <ul>
 <%@pub_workouts.each do |workout|%> 
-    <li> <%=workout.name%> <br/>
+    <li><span class="bold"><%=workout.name%> </span><br/>
     <%= workout.list_exercises%> 
     </li>
 <%end%>

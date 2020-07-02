@@ -9,16 +9,34 @@
 </div>
 
 <div class="box hmdetails">
+  <h2> Total Sessions Completed: <%=@user.number_total_past_seshes%>  </h2>
+
+  <div class="stat">
+  <div class="statleft">
+  In the last week: <%=@user.number_past_seshes_in_week%> <br/>
+  </div>
+
+  <div class="statright">
+  In the last month: <%=@user.number_past_seshes_in_month%> </span>
+  </div> 
+
+
+  </div>
+</div>
+
+<div class="box hmdetails">
 
 <% if @user.past_seshes %>
-<h2>Past sessions: </h2>
+<h2>Past sessions</h2>
 <ul>
   <%@user.past_seshes.each do |sesh| %>
       <li> 
       <span class="bold"> <%=sesh.time.strftime("%B %d %Y at %H:%M")%></span>
       <span style="float: right"> 
-      <%=link_to "DELETE", delete_sesh_path(sesh), class: "link delete"  %> 
-      </span> 
+      <%=link_to "DELETE", delete_sesh_log_path(sesh), class: "link delete"  %> 
+      </span> <br/>
+      <span style="color: #2E6137; font-family: 'Montserrat Bold'">
+        <%if sesh.gym %><%=sesh.gym.name%><%else%>Unassigned<%end%></span>      
       <br/>Goal: <%=sesh.trim_goals%>
       <br/>Workouts: <%=sesh.workouts_list%> 
       </li>
@@ -27,19 +45,44 @@
 <%end%>
 </div> 
 
+
+
 </div>
 <div class="hmsplit right">
 
 <div class="box hmdetails log">
+<h2>Workout Stats</h2>
 
-<span style="color: #4155A2">
-<%=@user.most_popular_workout_num%>
-</span>
+<div class="stat">
+<span class="bold"> Most popular: </span> <br/>
+<%=@user.most_popular_workouts%> <br/>
+Finished <%=@user.most_popular_workout_num%> <%="time".pluralize(@user.most_popular_workout_num)%>
+</div>
 
-<span style="float: right;">
-<%=@user.most_popular_workouts%> 
-</span>
+<div class="stat">
+abc
+</div>
 
 </div>
 
+<div class="box hmdetails log">
+<h2>Exercise Stats</h2>
+
+<div class="stat">
+<span class="bold"> Most popular: </span> <br/>
+
+<table width=100%>
+
+  <%@user.most_popular_exercises.each do |ex, num| %>
+  <tr> 
+      <td width=50%> <%=ex%></td>
+      <td width=50%> <%=num%></td>
+  </tr>
+  <%end%>
+</table>
+
+</div>
+
+
+</div>
 </div>

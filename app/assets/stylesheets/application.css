@@ -131,7 +131,21 @@ h1 {
 }
 
 .log {
-  height: 50px; 
+}
+
+.stat {
+  text-align: center; 
+  padding-bottom: 20px; 
+}
+
+.statright {
+  width: 50%; 
+  float: right;
+}
+
+.statleft{
+  width: 50%; 
+  float: left; 
 }
 
  /* styling for login page links */

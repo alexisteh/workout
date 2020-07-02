@@ -40,11 +40,18 @@ class SeshesController < ApplicationController
         end 
     end 
 
-    def delete 
+    def delete_home
         @sesh = Sesh.find(params[:id]) 
         @sesh.sessionworkouts.destroy_all 
         @sesh.destroy 
-        redirect_to '/home'
+        redirect_to '/home' 
+    end 
+
+    def delete_log
+        @sesh = Sesh.find(params[:id]) 
+        @sesh.sessionworkouts.destroy_all 
+        @sesh.destroy 
+        redirect_to '/logbook' 
     end 
 
     def activate 

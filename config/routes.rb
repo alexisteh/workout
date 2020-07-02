@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   post '/seshes', to: 'seshes#create'
   get '/seshes/:id/edit', to: 'seshes#edit', as: 'edit_sesh' 
   post '/seshes/update', to: 'seshes#update' 
-  get '/seshes/:id/delete',to: 'seshes#delete', as: 'delete_sesh' 
+  get '/seshes/:id/deletelog',to: 'seshes#delete_log', as: 'delete_sesh_log' 
+  get '/seshes/:id/deletehome',to: 'seshes#delete_home', as: 'delete_sesh_home' 
   get '/sesh/:id/activate', to: 'seshes#activate', as: "activate_sesh"
 
   get '/workouts/new', to: 'workouts#new' 

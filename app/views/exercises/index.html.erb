@@ -17,8 +17,7 @@
         <%=link_to "EDIT", edit_ex_path(id: ex.id), class: "link edit"%> 
         <%=link_to "DELETE", delete_exercise_path(id: ex.id), class: "link delete"%>
         </span> 
-        <br/>Category: <%=ex.exercisecat.name%>
-
+        <br/> <span style="color:#224A20">Category: <%=ex.exercisecat.name%></span>
         </li>
     <%end%>
 </ul>

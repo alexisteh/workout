@@ -14,7 +14,7 @@
       <span style="float: right"> 
       <%=link_to "ACTIVATE", activate_sesh_path(sesh), class: "link activate"  %> 
       <%=link_to "EDIT", edit_sesh_path(sesh), class: "link edit"  %> 
-      <%=link_to "DELETE", delete_sesh_path(sesh), class: "link delete"  %> 
+      <%=link_to "DELETE", delete_sesh_home_path(sesh), class: "link delete"  %> 
       </span> 
       <br/>At: <span style="color: #2E6137; font-family: 'Montserrat Bold'">
         <%if sesh.gym %><%=sesh.gym.name%><%else%>Unassigned<%end%></span>
@@ -36,7 +36,7 @@
       <span class="bold"> <%=sesh.time.strftime("%B %d %Y at %H:%M")%></span>
       <span style="float: right"> 
       <%=link_to "EDIT", edit_sesh_path(sesh), class: "link edit"  %> 
-      <%=link_to "DELETE", delete_sesh_path(sesh), class: "link delete"  %> 
+      <%=link_to "DELETE", delete_sesh_home_path(sesh), class: "link delete"  %> 
       </span> 
      <br/><span style="color: #2E6137; font-family: 'Montserrat Bold'">
         <%if sesh.gym %><%=sesh.gym.name%><%else%>Unassigned<%end%></span>      <br/>Goal: <%=sesh.trim_goals%>

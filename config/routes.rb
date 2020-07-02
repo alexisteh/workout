@@ -42,5 +42,3 @@ Rails.application.routes.draw do
   get '/logbook', to: 'sessions#logbook'
 
 end 
-
-# TODO: Tests how to access list of workout exercises

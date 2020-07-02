@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
     def new 
         #go to form to log in with name, password
         @user = User.new 
+        @foot = "nofoot"
     end 
 
     def create 

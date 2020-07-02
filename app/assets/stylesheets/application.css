@@ -31,7 +31,6 @@
 
 body {
     background-color: #F2F0EB; 
-    padding: 30px;
     font-family: "Montserrat Regular"; 
     margin: 0;
 }
@@ -41,17 +40,15 @@ h1 {
   padding: 2px;
 }
 
-
 .bold {
   font-family: 'Montserrat Bold';  
   color:  #E93F33; 
 }
 
-
-/* styling for home page */
+/* styling for page 2 column split */
 
 .hmsplit { 
-  height: 70%;
+  height: 73%;
   width: 50%;
   position: fixed;
   z-index: 1;
@@ -86,10 +83,12 @@ h1 {
   text-align: center; 
 }
 
-.login h1 {
+.login h1 { 
   text-align: center;
-  color: white; 
+  color: #F0E1BB; 
 }
+
+ /* styling for welcome box */
 
 .welcome{
   background-color: #4155A2; 
@@ -100,6 +99,8 @@ h1 {
   color:  #F0E1BB; 
 }
 
+ /* styling for details boxes */
+
 .hmdetails{
   background-color: #F0E1BB; 
 }
@@ -109,6 +110,8 @@ h1 {
   padding: 2px;
   text-align: center;
   color: #4155A2; }
+
+ /* styling for login page links */
 
 .linksignup {
   color: #F0E1BB; 
@@ -130,6 +133,30 @@ h1 {
 
 .linksignup:hover:after {
   width: 100px;
+}
+
+ /* styling for signup page links */
+
+.linklogin {
+  color: #F0E1BB; 
+  text-decoration: none; 
+}
+.linklogin:hover {
+  color:  #E93F33; 
+}
+
+.linklogin:after {
+  content: '';
+  display: block;
+  margin: auto; 
+  width: 0;
+  height: 3px;
+  background: #E93F33;
+  transition: width .3s;
+}
+
+.linklogin:hover:after {
+  width: 190px;
 }
 
  /* styling for new trainings, name and desc  */
@@ -196,3 +223,17 @@ h1 {
 .topnav a.active {
   color: #4155A2;
 }
+
+.foot {
+  position: fixed; 
+  display: block; 
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 6%; 
+  background-color:  #F2F0EB;
+  text-align: center;
+  font-family: 'Montserrat Bold';
+  font-size: 30px;
+  color: #706E69; 
+} 

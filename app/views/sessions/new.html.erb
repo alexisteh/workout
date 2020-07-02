@@ -1,7 +1,8 @@
 
 
-<div class="centerbox">
-<h1 style="color: #4155A2">LOG IN</h1>
+<div class="box login">
+
+<h1 style="color: #F0E1BB"> LOG IN</h1>
 
 <% if flash[:message] %>
     <p style="color: #E93F33"><%=flash[:message] %></p> 
@@ -11,10 +12,10 @@
 
 <%=form_for @user, url: '/login', method: :post do |f| %>
 
-    <%=f.label :name %> <br/>
+    <span style="color: #F0E1BB"> <%=f.label :name %> </span> <br/>
     <%=f.text_field :name %> <br/><br/>
 
-    <%=f.label :password %> <br/>
+    <span style="color: #F0E1BB"><%=f.label :password %> </span> <br/>
     <%=f.password_field :password %> 
     <br/><br/>
 
@@ -24,6 +25,6 @@
 
 <br/><br/>
 
-<%= link_to 'OR SIGN UP', '/signup', class: 'link' %> 
+<%= link_to 'OR SIGN UP', '/signup', class: 'linksignup' %> 
 
 </div>

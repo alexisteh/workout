@@ -1,26 +1,31 @@
-<h1>Make a new user account</h1> 
 
+<div class="box login">
+
+<h1>Make a new user account</h1> 
 <% if flash[:message] %>
 <ul>
     <%flash[:message].each do |message| %>
-    <li style="color: red"><%=message%></li> 
+    <li style="color: #F0E1BB; text-align: left"><%=message%></li> 
     <%end%>
 </ul>
+<%else%> <br/>
 <%end%> 
 
 <%=form_for @user, url: '/signup', method: :post do |f| %>
-    <%=f.label :name %>
-    <%=f.text_field :name %>
-    <br/>
-    <%=f.label :email %>
-    <%=f.text_field :email %>
-    <br/>
-    <%=f.label :password%>
-    <%=f.password_field :password %>
-    <br/>
-    <%=f.label :password_confirmation %>
-    <%=f.password_field :password_confirmation %>
-    <br/>
-
-    <%=f.submit "Sign up"%>
+<table width="100%"; padding="20px"> 
+    <tr> <td style="text-align:right"> <span style="color: #F0E1BB"> <%=f.label :name %></span></td> 
+    <td style="text-align:left" ><%=f.text_field :name %></td>
+    </tr> <tr> 
+    <td style="text-align:right"> <span style="color: #F0E1BB"> <%=f.label :email %></span> </td>
+    <td style="text-align:left"> <%=f.text_field :email %></td>
+    </tr> <tr>
+    <td style="text-align:right">  <span style="color: #F0E1BB"><%=f.label :password%></span></td>
+    <td style="text-align:left"> <%=f.password_field :password %> </td>
+    </tr> <tr>
+    <td style="text-align:right"> <span style="color: #F0E1BB"> <%=f.label :password_confirmation %></span></td>
+    <td style="text-align:left"> <%=f.password_field :password_confirmation %> </td>
+    </tr> <tr> <td></td><td style="text-align:left">
+        <%=f.submit "Sign up"%> </td> </tr>
+</table>
 <%end%> 
+</div>

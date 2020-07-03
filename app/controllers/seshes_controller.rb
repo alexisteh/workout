@@ -59,7 +59,6 @@ class SeshesController < ApplicationController
         @user = User.find(session[:user_id]) 
         
         
-
         # List of non-activated sessoin workouts
         seshworkouts = @sesh.sessionworkouts.select{|sesh_wkt| !sesh_wkt.activated}
         # redirect to home  if there are no more non activated seshworkouts
@@ -67,11 +66,11 @@ class SeshesController < ApplicationController
             redirect_to '/home'
         end
         
+        # byebug
         @current_workout = seshworkouts.first.workout
 
         # List of non-activated workout Exercises
         workout_exercises = @current_workout.workoutexercises.select{|wkt_exc| !wkt_exc.activated}
-        # byebug
         @current_exercise = workout_exercises.first.exercise
 
             
@@ -86,7 +85,6 @@ class SeshesController < ApplicationController
         
         
         @minutes = workout_exercises.find{|wkt_exc|wkt_exc.exercise_id == @current_exercise.id}.duration
-        byebug
     end 
 
     private 

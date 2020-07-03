@@ -50,10 +50,15 @@ h1 {
   color:  #E93F33; 
 }
 
+.shaded {
+  text-align: center; 
+  color: #BCBC5C; 
+}
+
 /* styling for page 2 column split */
 
 .hmsplit { 
-  height: 80%;
+  height: 84%;
   width: 50%;
   position: fixed;
   z-index: 1;
@@ -172,6 +177,17 @@ h1 {
 .linksignup:hover:after {
   width: 100px;
 }
+
+
+.name { 
+  color: #F0E1BB; 
+  text-decoration: none; 
+}
+
+.name:hover {
+  color:  #E93F33; 
+}
+
 
  /* styling for signup page links */
 

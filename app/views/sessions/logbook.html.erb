@@ -55,8 +55,17 @@
 
 <div class="stat">
 <span class="bold"> Most popular: </span> <br/>
-<%=@user.most_popular_workouts%> <br/>
-Finished <%=@user.most_popular_workout_num%> <%="time".pluralize(@user.most_popular_workout_num)%>
+
+<table width=100%>
+
+  <%@user.most_popular_workouts.each do |wk, num| %>
+  <tr> 
+      <td width=50%> <%=wk%></td>
+      <td width=50%> <%=num%></td>
+  </tr>
+  <%end%>
+</table>
+
 </div>
 
 <div class="stat">

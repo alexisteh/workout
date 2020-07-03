@@ -1,12 +1,14 @@
 <div class="hmsplit left">
 
   <div class="box welcome">
-  <h1> Welcome to Workout, <%=@user.name%>!</h1> 
+  <h1> Welcome, <%= link_to @user.name, '/users/details', class: 'name'%>!</h1> 
   </div>
+  
 
-  <%if @user.active_seshes%>
+
   <div class="box hmdetails">
   <h2>Active Sessions</h2>
+  <%if @user.active_seshes%>
   <ul> 
     <%@user.active_seshes.each do |sesh| %>
       <li> 
@@ -23,8 +25,11 @@
       </li>
     <%end%> 
   </ul> 
+  <%else%> 
+  <div class="shaded">No Active Sessions 
   </div>
   <%end%> 
+  </div>
 
 
   <div class="box hmdetails">
@@ -45,28 +50,12 @@
     <%end%>
   </ul> 
   <%else%>
-  <span style="float: center" >No future sessions to display! </span>
+  <div class="shaded">No future sessions to display! </div>
   <%end%>
   </div>
 
   <div class="box hmdetails">
   <h2>Keep Pushing on!</h2>
-  <br/>a
-  <br/>a
-  <br/>a
-   <br/>a
-  <br/>a
-  <br/>a <br/>a
-  <br/>a
-  <br/>a <br/>a
-  <br/>a
-  <br/>a <br/>a
-  <br/>a
-  <br/>a <br/>a
-  <br/>a
-  <br/>a <br/>a
-  <br/>a
-  <br/>a
   </div>
 </div>
 
@@ -112,7 +101,7 @@
       <td> <%=f.text_field :address%> </td> 
       </tr>
       <tr> 
-      <td style="text-align:right"><%=f.label :list_of_equipment%> </td> 
+      <td style="text-align:right"><%=f.label "Equipment"%> </td> 
       <td> <%=f.text_field :list_of_equipment%> </td> 
       </tr>
       <tr><td> </td> <td> <%=f.submit%> </td> </tr>

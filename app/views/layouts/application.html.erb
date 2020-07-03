@@ -30,11 +30,10 @@
     <%end%>
 
     <%if @site == "manage_exercises"%>   <a href='/exercises' class="active" >EXERCISES</a>
-    <%else%>  <a href='/exercises'>EXERCISES</a>
+    <%else%>  <a href='/exercises'>EXERCISES</a> <%end%>
 
-    <%end%>
-
-    <a href="/logbook">LOGBOOK</a> 
+    <%if @site == "logbook"%>   <a href='/logbook' class="active" >LOGBOOK</a>
+    <%else%>  <a href='/logbook'>LOGBOOK</a> <%end%> 
 
     <a href="/logout">SIGN OUT</a> 
 

@@ -2,19 +2,27 @@
 <h1>Create a new training routine! </h1>
 </div>
 
-
 <div class="box hmdetails">
+
+<%if flash[:message]%> 
+<ul>
+    <%flash[:message].each do |error| %>
+    <li style="color: red"> <%=error%>
+    </li>
+    <%end%>
+</ul>
+<%end%>
 
 <%=form_for @workout, url: '/workouts', method: :post do |f| %>
 
     <div class="nwtrcontainer"> 
         <div class="nwtrbox-cell box1">
         <%=f.label :name %> <br/>
-        <%=f.text_field :name, placeholder: "routine name" %>
+        <%=f.text_field :name, placeholder: "Workout Name" %>
         </div>
         <div class="nwtrbox-cell box2">
         <%=f.label :description %> <br/>
-        <%=f.text_field :description, size: 75, placeholder: "short description" %>
+        <%=f.text_field :description, size: 75, placeholder: "Workout Description" %>
         </div>
     </div>
 
@@ -23,62 +31,48 @@
 
     <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
         <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
-        Reps: <%=e.number_field :reps %>, 
-        Sets: <%=e.number_field :sets %>, 
-        Duration: <%=e.number_field :duration %> <br/>
+        Reps: <%=e.number_field :reps , placeholder: "Optional" %>, 
+        Sets: <%=e.number_field :sets , placeholder: "Optional" %>, 
+        Duration: <%=e.number_field :duration, placeholder: "Total Time in Minutes"%> <br/>
     <%end%> 
 
     <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
         <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
-        Reps: <%=e.number_field :reps %>, 
-        Sets: <%=e.number_field :sets %>, 
-        Duration: <%=e.number_field :duration %> <br/>
+        Reps: <%=e.number_field :reps , placeholder: "Optional" %>, 
+        Sets: <%=e.number_field :sets , placeholder: "Optional" %>, 
+        Duration: <%=e.number_field :duration, placeholder: "Total Time in Minutes"%> <br/>
     <%end%> 
 
     <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
         <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
-        Reps: <%=e.number_field :reps %>, 
-        Sets: <%=e.number_field :sets %>, 
-        Duration: <%=e.number_field :duration %> <br/>
+        Reps: <%=e.number_field :reps , placeholder: "Optional" %>, 
+        Sets: <%=e.number_field :sets , placeholder: "Optional" %>, 
+        Duration: <%=e.number_field :duration, placeholder: "Total Time in Minutes"%> <br/>
     <%end%> 
 
     <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
         <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
-        Reps: <%=e.number_field :reps %>, 
-        Sets: <%=e.number_field :sets %>, 
-        Duration: <%=e.number_field :duration %> <br/>
+        Reps: <%=e.number_field :reps , placeholder: "Optional" %>, 
+        Sets: <%=e.number_field :sets , placeholder: "Optional" %>, 
+        Duration: <%=e.number_field :duration, placeholder: "Total Time in Minutes"%> <br/>
     <%end%> 
 
     <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
         <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
-        Reps: <%=e.number_field :reps %>, 
-        Sets: <%=e.number_field :sets %>, 
-        Duration: <%=e.number_field :duration %> <br/>
+        Reps: <%=e.number_field :reps , placeholder: "Optional" %>, 
+        Sets: <%=e.number_field :sets , placeholder: "Optional" %>, 
+        Duration: <%=e.number_field :duration, placeholder: "Total Time in Minutes"%> <br/>
     <%end%> 
     <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
         <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
-        Reps: <%=e.number_field :reps %>, 
-        Sets: <%=e.number_field :sets %>, 
-        Duration: <%=e.number_field :duration %> <br/>
+        Reps: <%=e.number_field :reps , placeholder: "Optional" %>, 
+        Sets: <%=e.number_field :sets , placeholder: "Optional" %>, 
+        Duration: <%=e.number_field :duration, placeholder: "Total Time in Minutes"%> <br/>
     <%end%> 
     <br/> <br/>
     <%=f.submit%> 
 
     </div>
-
-<h3> Change Workout Order </h3>
-<h5>
-<%= form_with(url: "/sessionworkouts", method: "patch") do %> 
-    <%= hidden_field(:sesh, :id) %> 
-    <% @sesh_workouts.each{ |sesh_wkt|%>
-        <%= label_tag(:sesh_wkt, "#{sesh_wkt.workout.name}") %>
-        <%= number_field(:sesh_wkt) %>
-        <br>
-    <% } %>
-    <%= submit_tag("Update Order") %>
-<% end %>
-
-</h5>
 
 <%end%>
 </div>

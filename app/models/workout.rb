@@ -6,19 +6,28 @@ class Workout < ApplicationRecord
     has_many :workoutexercises, :dependent => :destroy
     has_many :exercises, through: :workoutexercises, :dependent => :destroy
 
-    # validates :name, presence: :true 
-    # validate :has_exercises? 
+    validate :has_name? 
 
     accepts_nested_attributes_for :workoutexercises 
 
     def make_joiner(hash) 
+        count = 0 
         hash.to_h.values[0].values.each do |we|
             unless we["exercise_id"] == nil || we["exercise_id"] == ""
                 obj = Workoutexercise.new(we) 
                 obj.update(workout_id: self.id) 
-                obj.save 
+                if obj.valid? 
+                    obj.save 
+                    count += 1 
+                else 
+                    count.times do 
+                        Workoutexercise.last.destroy 
+                    end 
+                    return obj.errors.full_messages 
+                end 
             end 
         end 
+        return "worked" 
     end 
 
     def list_exercises 
@@ -39,9 +48,10 @@ class Workout < ApplicationRecord
 
     private 
     
-    # def has_exercises?
-    #     if self.exercises == [] 
-    #         errors.add(:exercises, "are missing!")
-    #     end 
-    # end 
+    def has_name?
+        if self.name == nil || self.name ==  "" 
+            self.errors.add(:name, "must exist!")
+        end
+    end 
+
 end 

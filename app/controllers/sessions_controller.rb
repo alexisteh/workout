@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
 
     def logbook 
         @user = User.find(session[:user_id]) 
+        @site = "logbook"
     end 
 
     def new 

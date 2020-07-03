@@ -15,6 +15,9 @@
 
 <%=form_for @workout, url: '/workouts', method: :post do |f| %>
 
+    <table>
+    <tr><td>
+
     <div class="nwtrcontainer"> 
         <div class="nwtrbox-cell box1">
         <%=f.label :name %> <br/>
@@ -26,6 +29,7 @@
         </div>
     </div>
 
+    </td></tr><tr><td>
     <div class="nwtrexercises"> 
     Configure the exercises in your workout <br/><br/>
 
@@ -73,6 +77,9 @@
     <%=f.submit%> 
 
     </div>
+    </td>
+    </tr>
+    </table>
 
 <%end%>
 </div>

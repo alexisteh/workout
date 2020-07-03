@@ -63,7 +63,7 @@ class SeshesController < ApplicationController
         # redirect to home  if there are no more non activated seshworkouts
         if(seshworkouts.length == 0)
             redirect_to '/home'
-        else
+        else 
         
             # byebug
             @current_workout = seshworkouts.first.workout
@@ -82,7 +82,7 @@ class SeshesController < ApplicationController
             end
             
             @minutes = workout_exercises.find{|wkt_exc|wkt_exc.exercise_id == @current_exercise.id}.duration
-    end
+        end
     end 
 
     private 

@@ -83,7 +83,7 @@ class SeshesController < ApplicationController
 
                 
             # activate exercise
-            workout_exercises.find{|wkt_exc|wkt_exc.exercise_id == @current_exercise.id && wkt_exc.session_id = @sesh.id}.update_attribute(:activated, true)
+            workout_exercises.find{|wkt_exc|wkt_exc.exercise_id == @current_exercise.id}.update_attribute(:activated, true)
 
             # activate workout if there are no more non-activated exercises
             if (@current_workout.workoutexercises.select{|wkt_exc| !wkt_exc.activated}.length == 0)

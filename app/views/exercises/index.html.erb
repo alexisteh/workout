@@ -59,14 +59,15 @@
         <td> <%=f.text_field :exercisecat %> </td>
     </tr> 
 
-    <tr><td> </td> <td><%=f.submit%></td></tr>
+    <tr><td> </td> <td>    <%=f.submit "CREATE", class: 'button' %> 
+</td></tr>
     </table>
 <%end%>
 
 </div>
 
 <div class="box hmdetails">
-<h2>Public Exercises</h2> 
+<h2>Exercises Database</h2> 
 <ul style="padding-left: 50px">
     <%@pub_exercises.each do |ex| %>
         <li> 

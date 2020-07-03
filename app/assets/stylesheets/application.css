@@ -127,17 +127,34 @@ h1 {
 
 .link  {
   width: 40px;
-  height: 9px;
   background: #4E9CAF;
   padding: 0.5px;
-  padding-left: 6px;
-  padding-right: 6px; 
+  padding-left: 8px;
+  padding-right: 8px; 
   text-align: center;
   color: white;
   text-decoration: none; 
+  border-radius: 3px; 
 }
 
 .link:hover {
+  background: #E93F33;
+  color: white;
+}
+
+.button {
+  background: #4E9CAF;
+  color: white;
+  display: inline-block; 
+  border: none; 
+  border-radius: 3px; 
+  font-family: 'Montserrat Regular';
+  font-size: 16px;  
+  height: 22px; 
+  padding-left: 8px;
+  padding-right: 8px; 
+}
+.button:hover {
   background: #E93F33;
   color: white;
 }

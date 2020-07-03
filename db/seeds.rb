@@ -50,18 +50,18 @@ exercise_9 = Exercise.create(name: "lunges", exercisecat_id: excat_5.id, user_id
 
 
 
-we_1 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_1.id, reps: 10,sets: 5, duration: 180)
-we_2 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_5.id, reps: 1,sets: 1, duration: 1200)
-we_3 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_7.id, reps: 1,sets: 1, duration: 1200)
-we_4 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_6.id, reps: 1,sets: 1, duration: 300)
+we_1 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_1.id, reps: 10,sets: 5, duration: 30)
+we_2 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_5.id, reps: 1,sets: 1, duration: 12)
+we_3 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_7.id, reps: 1,sets: 1, duration: 20)
+we_4 = Workoutexercise.create(workout_id: workout_1.id, exercise_id: exercise_6.id, reps: 1,sets: 1, duration: 30)
 
-we_5 = Workoutexercise.create(workout_id: workout_2.id, exercise_id: exercise_1.id, reps: 10,sets: 5, duration: 180)
-we_6 = Workoutexercise.create(workout_id: workout_2.id, exercise_id: exercise_8.id, reps: 20,sets: 5, duration: 1200)
-we_7 = Workoutexercise.create(workout_id: workout_2.id, exercise_id: exercise_9.id, reps: 20,sets: 5, duration: 1500)
-we_8 = Workoutexercise.create(workout_id: workout_2.id, exercise_id: exercise_6.id, reps: 1,sets: 1, duration: 300)
+we_5 = Workoutexercise.create(workout_id: workout_2.id, exercise_id: exercise_1.id, reps: 10,sets: 5, duration: 18)
+we_6 = Workoutexercise.create(workout_id: workout_2.id, exercise_id: exercise_8.id, reps: 20,sets: 5, duration: 12)
+we_7 = Workoutexercise.create(workout_id: workout_2.id, exercise_id: exercise_9.id, reps: 20,sets: 5, duration: 15)
+we_8 = Workoutexercise.create(workout_id: workout_2.id, exercise_id: exercise_6.id, reps: 1,sets: 1, duration: 30)
 
-we_9 = Workoutexercise.create(workout_id: workout_3.id, exercise_id: exercise_6.id, reps: 1,sets: 1, duration: 300)
-we_10 = Workoutexercise.create(workout_id: workout_3.id, exercise_id: exercise_2.id, reps: 1,sets: 1, duration: 1200) 
+we_9 = Workoutexercise.create(workout_id: workout_3.id, exercise_id: exercise_6.id, reps: 1,sets: 1, duration: 30)
+we_10 = Workoutexercise.create(workout_id: workout_3.id, exercise_id: exercise_2.id, reps: 1,sets: 1, duration: 12) 
 
 ses_wkt_1 = Sessionworkout.create(sesh_id: session_1.id, workout_id: workout_1.id) 
 ses_wkt_2 = Sessionworkout.create(sesh_id: session_2.id, workout_id:workout_2.id)

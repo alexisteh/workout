@@ -20,7 +20,8 @@ class User < ApplicationRecord
 
     def future_seshes 
         # gives array of all future seshes 
-        all = self.seshes.select{|sesh| sesh.in_future? }
+        first = self.seshes.select{|sesh| sesh.in_future? }
+        all = first.select{|sesh| !active_seshes.include?(sesh)} 
         return nil if all == [] 
         return all.sort_by{|sesh| sesh.time.strftime("%Y %m %d %H %M") } 
     end 

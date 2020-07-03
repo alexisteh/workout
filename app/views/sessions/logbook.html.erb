@@ -19,15 +19,16 @@
   <div class="statright">
   In the last month: <%=@user.number_past_seshes_in_month%> </span>
   </div> 
-
-
   </div>
+
 </div>
+
 
 <div class="box hmdetails">
 
-<% if @user.past_seshes %>
-<h2>Past sessions</h2>
+<h2>Past Sessions</h2>
+
+<% if @user.past_seshes %> 
 <ul>
   <%@user.past_seshes.each do |sesh| %>
       <li> 
@@ -42,7 +43,12 @@
       </li>
   <%end%>
 </ul>
+
+<%else%>
+<br/>
+<div class="shaded">No Data to Display</div>
 <%end%>
+
 </div> 
 
 
@@ -54,9 +60,9 @@
 <h2>Workout Stats</h2>
 
 <div class="stat">
-<span class="bold"> Most popular: </span> <br/>
-
-<table width=100%>
+<%if @user.most_popular_workouts%>
+<span class="bold"> Most popular: </span> 
+<table style="width:70%; margin-left:15%; margin-right:15%;">
 
   <%@user.most_popular_workouts.each do |wk, num| %>
   <tr> 
@@ -65,22 +71,26 @@
   </tr>
   <%end%>
 </table>
+<%else%>
+<br/>
+<span class="shaded">No Data to Display</span>
+<%end%>
+</div>
 
 </div>
 
-<div class="stat">
-abc
-</div>
-
-</div>
 
 <div class="box hmdetails log">
+
 <h2>Exercise Stats</h2>
 
 <div class="stat">
+<%if @user.most_popular_workouts%>
+
 <span class="bold"> Most popular: </span> <br/>
 
-<table width=100%>
+
+<table style="width:70%; margin-left:15%; margin-right:15%;">
 
   <%@user.most_popular_exercises.each do |ex, num| %>
   <tr> 
@@ -90,8 +100,28 @@ abc
   <%end%>
 </table>
 
+<%else%>
+<br/>
+<span class="shaded">No Data to Display</span>
+<%end%>
 </div>
 
+<div class="stat">
+<%if @user.most_popular_exercisecats%> 
+<span class="bold"> Most popular: </span> <br/>
 
+<table style="width:70%; margin-left:15%; margin-right:15%;">
+
+  <%@user.most_popular_exercisecats.each do |cat, num| %>
+  <tr> 
+      <td width=50%> <%=cat%></td>
+      <td width=50% > <%=num%></td>
+  </tr>
+  <%end%>
+</table>
+<%else%>
+<br/>
+<span class="shaded">No Data to Display</span>
+<%end%>
 </div>
 </div>

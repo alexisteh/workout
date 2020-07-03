@@ -5,6 +5,7 @@ class Exercise < ApplicationRecord
     belongs_to :exercisecat 
 
     validates :name, presence: true 
+    validates :name, uniqueness: true 
     validates :exercisecat, presence: true 
 
     def display

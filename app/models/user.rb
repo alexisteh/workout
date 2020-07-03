@@ -50,6 +50,7 @@ class User < ApplicationRecord
         if self.past_seshes 
             all = self.past_seshes.select{|sesh| sesh.time - Time.now < 604800 && sesh.time - Time.now > -604800}
             return all.length 
+        else return 0 
         end 
     end 
 
@@ -58,6 +59,7 @@ class User < ApplicationRecord
         if self.past_seshes 
             all = self.past_seshes.select{|sesh| sesh.time - Time.now < 2419200 && sesh.time - Time.now > -2419200}
             return all.length 
+        else return 0 
         end 
     end 
 
@@ -75,15 +77,18 @@ class User < ApplicationRecord
     end 
 
     def most_popular_workouts
-        hash = self.workout_history
-        maxes = hash.values.max(3) 
-        hash.each do |key,val| 
-            unless maxes.include?(val)
-                hash.delete(key) 
+        if self.workout_history
+            hash = self.workout_history
+            maxes = hash.values.max(3) 
+            hash.each do |key,val| 
+                unless maxes.include?(val)
+                    hash.delete(key) 
+                end 
             end 
+            return hash.sort_by{|key,val| val}.reverse
         end 
-        return hash.sort_by{|key,val| val}.reverse
     end 
+
 
     # def most_popular_workout 
     #     if self.workout_history 
@@ -107,14 +112,20 @@ class User < ApplicationRecord
     #     end 
     # end 
 
-    def exercise_history  
-        if self.past_seshes
+    def exercise_list 
+        if self.past_seshes 
             arrex = [] 
             self.past_seshes.each do |sesh| 
                 exes = sesh.workouts.map{|workout| workout.exercises.map(&:name)}
                 arrex << exes.flatten 
             end 
-            arr = arrex.flatten 
+            return arrex.flatten 
+        end 
+    end 
+
+    def exercise_history  
+        if self.exercise_list 
+            arr = exercise_list  
             uniqex = arr.uniq 
             hash = {} 
             uniqex.each do |ex| 
@@ -126,17 +137,44 @@ class User < ApplicationRecord
     end 
 
     def most_popular_exercises
-        hash = self.exercise_history
-        maxes = hash.values.max(3) 
-        hash.each do |key,val| 
-            unless maxes.include?(val)
-                hash.delete(key) 
+        if self.exercise_history
+            hash = self.exercise_history
+            maxes = hash.values.max(3) 
+            hash.each do |key,val| 
+                unless maxes.include?(val)
+                    hash.delete(key) 
+                end 
             end 
+            return hash.sort_by{|key,val| val}.reverse
         end 
-        return hash.sort_by{|key,val| val}.reverse
     end 
 
-    def most_popular_exercise_num 
+    def exercisecat_history 
+        if self.exercise_list 
+            arrex = self.exercise_list 
+            arrcat = arrex.map{|ex| Exercise.find_by(name: ex).exercisecat.name} 
+            uniqcat = arrcat.uniq 
+            hash = {} 
+            uniqcat.each do |cat| 
+                numcat = arrcat.count(cat) 
+                hash[cat] = numcat 
+            end 
+            return hash 
+        end 
+    end 
+
+
+    def most_popular_exercisecats
+        if self.exercisecat_history
+            hash = self.exercisecat_history
+            maxes = hash.values.max(3) 
+            hash.each do |key,val| 
+                unless maxes.include?(val)
+                    hash.delete(key) 
+                end 
+            end 
+            return hash.sort_by{|key,val| val}.reverse
+        end 
     end 
 
 

@@ -5,10 +5,10 @@ class Sesh < ApplicationRecord
     has_many :sessionworkouts 
     has_many :workouts, through: :sessionworkouts 
 
-    # validates :time, presence: true 
-    # validates :goals, presence: true 
-    # validate :has_a_workout? 
-    # validate :time_in_future? 
+    validates :time, presence: true 
+    validates :goals, presence: true 
+    validate :has_a_workout? 
+    validate :time_in_future? 
 
     def workouts_list
         self.workouts.map(&:name).join(", ")  

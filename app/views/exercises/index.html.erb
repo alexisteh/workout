@@ -17,7 +17,7 @@
         <%=link_to "EDIT", edit_ex_path(id: ex.id), class: "link edit"%> 
         <%=link_to "DELETE", delete_exercise_path(id: ex.id), class: "link delete"%>
         </span> 
-        <br/> <span style="color:#224A20">Category: <%=ex.exercisecat.name%></span>
+        <br/> <span style="color: black">Category: <%=ex.exercisecat.name%></span>
         </li>
     <%end%>
 </ul>
@@ -69,10 +69,10 @@
 <div class="box hmdetails">
 <h2>Exercises Database</h2> 
 <ul style="padding-left: 50px">
-    <%@pub_exercises.each do |ex| %>
+    <%@pub_exercises.sort_by{|ex| ex.name}.each do |ex| %>
         <li> 
         <span class="bold"> <%=ex.name%></span> 
-        <br/> <span style="color:#224A20">Category: <%=ex.exercisecat.name%></span>
+        <br/> <span style="color: black">Category: <%=ex.exercisecat.name%></span>
         </li>
     <%end%>
 </ul> 

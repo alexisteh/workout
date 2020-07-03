@@ -17,3 +17,24 @@ Active sessions, which have a starting time in the closest 1-hour block to the c
 # FEATURES TO PRESENT 
 
 - before presentation: un-comment validations 
+
+- Basic Intro (kaleb) 
+    - Talk about inspiration for this project
+    - Project design process
+    - 8 models, 32 functions 
+
+- Demo (Alexis)
+    - Create new user 
+    - Log in to Jeremy (password: 123) 
+    - show user details (name, email)
+    - Explain layout of home, navigation bar 
+    - Create a new gym 
+    - Edit gym with equipment  
+    - Create a new exercise
+    - Create a new workout using preexisting exercise and custom exercise
+    - Create a new session using a custom workout and a preexisting workout
+    - Show logbook statistics 
+
+
+- Explain Activating(Kaleb)
+    - explain how it works

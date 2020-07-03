@@ -39,6 +39,7 @@
 <%@pub_workouts.each do |workout|%> 
     <li><span class="bold"><%=workout.name%> </span><br/>
     <%= workout.list_exercises%> 
+    <br/><%= workout.trim_description%>  
     </li>
 <%end%>
 <ul> 

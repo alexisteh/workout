@@ -13,28 +13,3 @@ When building a workout, the user can choose what types of exercises to include 
 The user's dashboard, or his home page, will display his active sessions and future sessions, as well as his gym details where he can add a new gym or edit and delete an existing gym. On this dashhboard, he can also edit and delete active or upcoming sessions. 
 
 Active sessions, which have a starting time in the closest 1-hour block to the current time, have an additional functionality - they can be 'activated.' Activation brings the user to a screen where a timer will show and he can begin doing the exercises according to the duration he allotted to each (skipping forward to the next exercise if one finishes early is also allowed). 
-
-# FEATURES TO PRESENT 
-
-- before presentation: un-comment validations 
-
-- Basic Intro (kaleb) 
-    - Talk about inspiration for this project
-    - Project design process
-    - 8 models, 32 functions 
-
-- Demo (Alexis)
-    - Create new user 
-    - Log in to Jeremy (password: 123) 
-    - show user details (name, email)
-    - Explain layout of home, navigation bar 
-    - Create a new gym 
-    - Edit gym with equipment  
-    - Create a new exercise
-    - Create a new workout using preexisting exercise and custom exercise
-    - Create a new session using a custom workout and a preexisting workout
-    - Show logbook statistics 
-
-
-- Explain Activating(Kaleb)
-    - explain how it works

@@ -14,7 +14,11 @@
       <li> 
       <span class="bold"> <%=sesh.time.strftime("%B %d %Y at %H:%M")%></span>
       <span style="float: right"> 
-      <%=link_to "ACTIVATE", activate_sesh_path(sesh), class: "link activate"  %> 
+      <% if sesh.sessionworkouts.select{|sesh_wkt| !sesh_wkt.activated}.length == 0 %>
+        <%=link_to "ACTIVATE", activate_sesh_path(sesh), class: "linkactivated"  %> 
+      <%else%>
+        <%=link_to "ACTIVATE", activate_sesh_path(sesh), class: "link activate"  %> 
+      <%end%>
       <%=link_to "EDIT", edit_sesh_path(sesh), class: "link edit"  %> 
       <%=link_to "DELETE", delete_sesh_home_path(sesh), class: "link delete"  %> 
       </span> 

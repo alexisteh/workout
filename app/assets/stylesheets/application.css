@@ -137,6 +137,22 @@ h1 {
   border-radius: 3px; 
 }
 
+.linkactivated {
+  width: 40px;
+  background: #706E69;
+  padding: 0.5px;
+  padding-left: 8px;
+  padding-right: 8px; 
+  text-align: center;
+  color: white;
+  text-decoration: none; 
+  border-radius: 3px; 
+}
+
+.linkactivated:hover{
+  background: #706E69;
+}
+
 .link:hover {
   background: #E93F33;
   color: white;

@@ -55,10 +55,9 @@ class SeshesController < ApplicationController
     end 
 
     def activate 
-        byebug
+        # byebug
         @sesh = Sesh.find(params[:id]) 
         @user = User.find(session[:user_id]) 
-        
         
         # List of non-activated sessoin workouts
         seshworkouts = @sesh.sessionworkouts.select{|sesh_wkt| !sesh_wkt.activated}

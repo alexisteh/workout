@@ -58,14 +58,23 @@ class SeshesController < ApplicationController
         @sesh = Sesh.find(params[:id]) 
         @user = User.find(session[:user_id]) 
         
+        
+        
         # List of non-activated sessoin workouts
         seshworkouts = @sesh.sessionworkouts.select{|sesh_wkt| !sesh_wkt.activated}
-        # redirect to home  if there are no more non activated seshworkouts
-        if(seshworkouts.length == 0)
-            redirect_to '/home'
-        else 
         
-            # byebug
+        
+        # redirect to home  if there are no more non activated seshworkouts
+        if(seshworkouts.length == 0 )
+            # Reset activation of workoutexercises so that they can be used in another session
+            Workoutexercise.all.each{|we| we.update_attribute(:activated, false)}
+            redirect_to '/home'
+            
+        # Failsafe to stop error with current_exercise being null
+        elsif (seshworkouts.first.workout.workoutexercises.select{|wkt_exc| !wkt_exc.activated}.length == 0)
+            redirect_to '/home'
+        else
+            
             @current_workout = seshworkouts.first.workout
 
             # List of non-activated workout Exercises
@@ -74,8 +83,8 @@ class SeshesController < ApplicationController
 
                 
             # activate exercise
-            workout_exercises.find{|wkt_exc|wkt_exc.exercise_id == @current_exercise.id}.update_attribute(:activated, true)
-            # @current_exercise.workoutexercise.update(activated: true)
+            workout_exercises.find{|wkt_exc|wkt_exc.exercise_id == @current_exercise.id && wkt_exc.session_id = @sesh.id}.update_attribute(:activated, true)
+
             # activate workout if there are no more non-activated exercises
             if (@current_workout.workoutexercises.select{|wkt_exc| !wkt_exc.activated}.length == 0)
                 seshworkouts.find{|ses_wkt| ses_wkt.workout_id == @current_workout.id}.update_attribute(:activated, true)

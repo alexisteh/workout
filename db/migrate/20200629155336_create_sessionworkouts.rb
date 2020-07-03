@@ -4,6 +4,7 @@ class CreateSessionworkouts < ActiveRecord::Migration[6.0]
       t.integer :sesh_id
       t.integer :workout_id
       t.integer :order
+      t.boolean :activated, default: false
     end
   end
 end

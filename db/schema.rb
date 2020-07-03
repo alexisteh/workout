@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_07_02_162807) do
     t.string "name"
     t.string "address"
     t.string "list_of_equipment"
-    t.integer "user_id" 
+    t.integer "user_id"
   end
 
   create_table "seshes", force: :cascade do |t|
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_07_02_162807) do
     t.integer "sesh_id"
     t.integer "workout_id"
     t.integer "order"
+    t.boolean "activated", default: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_07_02_162807) do
     t.integer "reps"
     t.integer "sets"
     t.integer "duration"
+    t.boolean "activated", default: false
   end
 
   create_table "workouts", force: :cascade do |t|

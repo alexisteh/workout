@@ -16,6 +16,7 @@ usr_2 = User.create(name:"Garreth", password:"2423csd-f", email:"gdog123@gmail.c
 usr_3 = User.create(name:"Ari", password:"]sdf9", email:"ririme@gmail.com")
 usr_4 = User.create(name:"Brody", password:"asfds-3", email:"brodykon@gmail.com")
 usr_5 = User.create(name:"Tai", password:"23adsfs", email:"taimi@gmail.com")
+usr_6 = User.create(name:"1", password:"1", email:"1@gmail.com")
 
 gym_1 = Gym.create(name:"Payne Whitney Gym", address: "70 Tower Pkwy, create Haven, CT 06511", list_of_equipment: "Dumbells, Excercise bike, treadmill", user_id: usr_1.id)
 gym_2 = Gym.create(name:"Payne Whitney Gym", address: "189 Elm St, create Haven, CT 06511", list_of_equipment: "Yoga ball, Dumbells, Punching bag", user_id: usr_1.id)

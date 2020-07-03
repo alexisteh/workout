@@ -58,9 +58,35 @@ class SeshesController < ApplicationController
         @sesh = Sesh.find(params[:id]) 
         @user = User.find(session[:user_id]) 
         
+        
 
-        @minutes = 60
-        @date_str = "Jan 5, 2021 15:37:25"
+        # List of non-activated sessoin workouts
+        seshworkouts = @sesh.sessionworkouts.select{|sesh_wkt| !sesh_wkt.activated}
+        # redirect to home  if there are no more non activated seshworkouts
+        if(seshworkouts.length == 0)
+            redirect_to '/home'
+        end
+        
+        @current_workout = seshworkouts.first.workout
+
+        # List of non-activated workout Exercises
+        workout_exercises = @current_workout.workoutexercises.select{|wkt_exc| !wkt_exc.activated}
+        # byebug
+        @current_exercise = workout_exercises.first.exercise
+
+            
+        # activate exercise
+        workout_exercises.find{|wkt_exc|wkt_exc.exercise_id == @current_exercise.id}.update_attribute(:activated, true)
+        # @current_exercise.workoutexercise.update(activated: true)
+        # activate workout if there are no more non-activated exercises
+        if (@current_workout.workoutexercises.select{|wkt_exc| !wkt_exc.activated}.length == 0)
+            seshworkouts.find{|ses_wkt| ses_wkt.workout_id == @current_workout.id}.update_attribute(:activated, true)
+        end
+
+        
+        
+        @minutes = workout_exercises.find{|wkt_exc|wkt_exc.exercise_id == @current_exercise.id}.duration
+        byebug
     end 
 
     private 

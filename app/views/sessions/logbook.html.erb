@@ -1,126 +1,129 @@
 
 <div class="hmsplit left">
 
-<div class="box welcome">
+  <div class="box welcome">
 
-<h1>Congratulations!</h1>
- <p style='text-align: center; color: white'><%=@user.sum_past_sesh_duration%><br/>
- spent working out so far</p>
-</div>
-
-<div class="box hmdetails">
-  <h2> Total Sessions Completed: <%=@user.number_total_past_seshes%>  </h2>
-
-  <div class="stat">
-  <div class="statleft">
-  In the last week: <%=@user.number_past_seshes_in_week%> <br/>
+    <h1>Congratulations!</h1>
+    <p style='text-align: center; color: white'><%=@user.sum_past_sesh_duration%><br/>
+    spent working out so far</p>
   </div>
 
-  <div class="statright">
-  In the last month: <%=@user.number_past_seshes_in_month%> </span>
+  <div class="box hmdetails">
+
+    <h2> Total Sessions Completed: <%=@user.number_total_past_seshes%>  </h2>
+
+    <div class="stat">
+      <div class="statleft">
+      In the last week: <%=@user.number_past_seshes_in_week%> <br/>
+      </div>
+
+      <div class="statright">
+      In the last month: <%=@user.number_past_seshes_in_month%> </span>
+      </div> 
+    </div>
+
+  </div>
+
+
+  <div class="box hmdetails">
+
+    <h2>Past Sessions</h2>
+
+    <% if @user.past_seshes %> 
+      <ul>
+        <%@user.past_seshes.each do |sesh| %>
+            <li> 
+            <span class="bold"> <%=sesh.time.strftime("%B %d %Y at %H:%M")%></span>
+            <span style="float: right"> 
+            <%=link_to "DELETE", delete_sesh_log_path(sesh), class: "link delete"  %> 
+            </span> <br/>
+            <span style="color: #2E6137; font-family: 'Montserrat Bold'">
+              <%if sesh.gym %><%=sesh.gym.name%><%else%>Unassigned<%end%></span>      
+            <br/>Goal: <%=sesh.trim_goals%>
+            <br/>Workouts: <%=sesh.workouts_list%> 
+            </li>
+        <%end%>
+      </ul>
+
+    <%else%>
+      <br/>
+      <div class="shaded">No Data to Display</div>
+    <%end%>
+
   </div> 
-  </div>
-
-</div>
-
-
-<div class="box hmdetails">
-
-<h2>Past Sessions</h2>
-
-<% if @user.past_seshes %> 
-<ul>
-  <%@user.past_seshes.each do |sesh| %>
-      <li> 
-      <span class="bold"> <%=sesh.time.strftime("%B %d %Y at %H:%M")%></span>
-      <span style="float: right"> 
-      <%=link_to "DELETE", delete_sesh_log_path(sesh), class: "link delete"  %> 
-      </span> <br/>
-      <span style="color: #2E6137; font-family: 'Montserrat Bold'">
-        <%if sesh.gym %><%=sesh.gym.name%><%else%>Unassigned<%end%></span>      
-      <br/>Goal: <%=sesh.trim_goals%>
-      <br/>Workouts: <%=sesh.workouts_list%> 
-      </li>
-  <%end%>
-</ul>
-
-<%else%>
-<br/>
-<div class="shaded">No Data to Display</div>
-<%end%>
-
-</div> 
 
 
 </div>
+
 <div class="hmsplit right">
 
-<div class="box hmdetails log">
-<h2>Workout Stats</h2>
+  <div class="box hmdetails log">
+    <h2>Workout Stats</h2>
 
-<div class="stat">
-<%if @user.most_popular_workouts%>
-<span class="bold"> Your Favourite Workouts </span> 
-<table style="width:70%; margin-left:15%; margin-right:15%;">
+    <div class="stat">
+      <%if @user.most_popular_workouts%>
+      <span class="bold"> Your Favourite Workouts </span> 
+      <table style="width:70%; margin-left:15%; margin-right:15%;">
 
-  <%@user.most_popular_workouts.each do |wk, num| %>
-  <tr> 
-      <td width=50%> <%=wk%></td>
-      <td width=50%> <%=num%></td>
-  </tr>
+        <%@user.most_popular_workouts.each do |wk, num| %>
+        <tr> 
+            <td width=50%> <%=wk%></td>
+            <td width=50%> <%=num%></td>
+        </tr>
+        <%end%>
+      </table>
+      <%else%>
+      <br/>
+      <span class="shaded">No Data to Display</span>
+      <%end%>
+    </div>
+
+  </div>
+
+
+  <div class="box hmdetails log">
+
+  <h2>Exercise Stats</h2>
+
+  <div class="stat">
+  <%if @user.most_popular_workouts%>
+
+  <span class="bold"> Your Favourite Exercises </span> <br/>
+
+
+  <table style="width:70%; margin-left:15%; margin-right:15%;">
+
+    <%@user.most_popular_exercises.each do |ex, num| %>
+    <tr> 
+        <td width=50%> <%=ex%></td>
+        <td width=50%> <%=num%></td>
+    </tr>
+    <%end%>
+  </table>
+
+  <%else%>
+  <br/>
+  <span class="shaded">No Data to Display</span>
   <%end%>
-</table>
-<%else%>
-<br/>
-<span class="shaded">No Data to Display</span>
-<%end%>
-</div>
+  </div>
 
-</div>
+    <div class="stat">
+    <%if @user.most_popular_exercisecats%> 
+    <span class="bold"> Your Favourite Categories </span> <br/>
 
+    <table style="width:70%; margin-left:15%; margin-right:15%;">
 
-<div class="box hmdetails log">
-
-<h2>Exercise Stats</h2>
-
-<div class="stat">
-<%if @user.most_popular_workouts%>
-
-<span class="bold"> Your Favourite Exercises </span> <br/>
-
-
-<table style="width:70%; margin-left:15%; margin-right:15%;">
-
-  <%@user.most_popular_exercises.each do |ex, num| %>
-  <tr> 
-      <td width=50%> <%=ex%></td>
-      <td width=50%> <%=num%></td>
-  </tr>
-  <%end%>
-</table>
-
-<%else%>
-<br/>
-<span class="shaded">No Data to Display</span>
-<%end%>
-</div>
-
-<div class="stat">
-<%if @user.most_popular_exercisecats%> 
-<span class="bold"> Your Favourite Categories </span> <br/>
-
-<table style="width:70%; margin-left:15%; margin-right:15%;">
-
-  <%@user.most_popular_exercisecats.each do |cat, num| %>
-  <tr> 
-      <td width=50%> <%=cat%></td>
-      <td width=50% > <%=num%></td>
-  </tr>
-  <%end%>
-</table>
-<%else%>
-<br/>
-<span class="shaded">No Data to Display</span>
-<%end%>
+      <%@user.most_popular_exercisecats.each do |cat, num| %>
+      <tr> 
+          <td width=50%> <%=cat%></td>
+          <td width=50% > <%=num%></td>
+      </tr>
+      <%end%>
+    </table>
+    <%else%>
+    <br/>
+    <span class="shaded">No Data to Display</span>
+    <%end%>
+    </div>
 </div>
 </div>

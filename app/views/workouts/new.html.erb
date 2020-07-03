@@ -1,17 +1,16 @@
 <div class="box welcome">
-<h1>Create a new training routine! </h1>
+<h1>Create a New Workout Routine</h1>
 </div>
 
 <div class="box hmdetails">
 
-<%if flash[:message]%> 
-<ul>
-    <%flash[:message].each do |error| %>
-    <li style="color: red"> <%=error%>
-    </li>
-    <%end%>
-</ul>
-<%end%>
+    <% if flash[:message] %>
+    <div style="text-align: center; color: #E93F33; font-family: 'Montserrat Bold'">
+        <%flash[:message].each do |message| %>
+        <%=message%> <br/> 
+        <%end%>
+    </div> 
+    <%end%> 
 
 <%=form_for @workout, url: '/workouts', method: :post do |f| %>
 

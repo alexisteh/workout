@@ -83,11 +83,11 @@
 
 <h2>Register New Gym</h2>
     <% if flash[:message] %>
-    <ul>
+    <div style="text-align: center; color: #E93F33; font-family: 'Montserrat Bold'">
         <%flash[:message].each do |message| %>
-        <li style="color: red"><%=message%></li> 
+        <%=message%> <br/> 
         <%end%>
-    </ul> 
+    </div> 
     <%end%> 
 
     <%=form_for @gym, url: '/gyms', method: :post do |f| %>

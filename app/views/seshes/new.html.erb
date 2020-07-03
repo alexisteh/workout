@@ -1,16 +1,16 @@
 
 <div class="box welcome">
-<h1>Schedule a new session</h1>
+<h1>Schedule a New Session</h1>
 </div>
 
 <div class="box hmdetails">
-<% if flash[:message] %>
-<ul>
-    <%flash[:message].each do |message| %>
-    <li style="color: red"><%=message%></li> 
-    <%end%>
-</ul>
-<%end%> 
+    <% if flash[:message] %>
+    <div style="text-align: center; color: #E93F33; font-family: 'Montserrat Bold'">
+        <%flash[:message].each do |message| %>
+        <%=message%> <br/> 
+        <%end%>
+    </div> 
+    <%end%> 
 
 <%=form_for @sesh, url: '/seshes', method: :post do |f| %>
     <table width=50%>

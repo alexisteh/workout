@@ -13,16 +13,21 @@ class ExercisesController < ApplicationController
         @exercise.user_id = session[:user_id] 
         @exercise.update(name: exercise_params[:name]) 
         if exercise_params[:exercisecat_id] == "" 
-            newex = Exercisecat.find_or_create_by(name: exercise_params[:exercisecat]) 
-            @exercise.update(exercisecat_id: newex.id) 
-        else 
+            if exercise_params[:exercisecat] == ""
+                flash[:message] = ["Exercise needs a category"]
+                return redirect_to '/exercises'
+            else 
+                newex = Exercisecat.find_or_create_by(name: exercise_params[:exercisecat]) 
+                @exercise.update(exercisecat_id: newex.id) 
+            end 
+        else
             @exercise.update(exercisecat_id: exercise_params[:exercisecat_id])  
         end 
         if @exercise.valid? 
             @exercise.save 
-            redirect_to '/exercises' 
+            return redirect_to '/exercises' 
         else 
-            flash[:message] = @exercises.errors.full_messages 
+            flash[:message] = @exercise.errors.full_messages 
             redirect_to '/exercises'
         end 
     end 

@@ -36,13 +36,13 @@
 
 <h2>Add a new exercise</h2>
 
-<%if flash[:message]%>
-    <ul> <%flash[:message].each do |error| %> 
-        <li style="color: red"> <%=error%> 
-        </li>
-        <%end%> 
-    </ul>
-<%end%> 
+    <% if flash[:message] %>
+    <div style="text-align: center; color: #E93F33; font-family: 'Montserrat Bold'">
+        <%flash[:message].each do |message| %>
+        <%=message%> <br/> 
+        <%end%>
+    </div> 
+    <%end%> 
 
 <%=form_for @exercise, url: '/exercises/create', method: :post do |f|%>
     <table width="100%"; padding="20px">

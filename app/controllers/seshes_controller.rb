@@ -55,7 +55,6 @@ class SeshesController < ApplicationController
     end 
 
     def activate 
-        # byebug
         @sesh = Sesh.find(params[:id]) 
         @user = User.find(session[:user_id]) 
         
@@ -64,7 +63,6 @@ class SeshesController < ApplicationController
         # redirect to home  if there are no more non activated seshworkouts
         if(seshworkouts.length == 0)
             redirect_to '/home'
-            byebug
         else
         
             # byebug

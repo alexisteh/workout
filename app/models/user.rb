@@ -15,7 +15,7 @@ class User < ApplicationRecord
         # gives array of all past seshes 
         all = self.seshes.select{|sesh| sesh.in_past? }
         return nil if all == [] 
-        return all.sort_by{|sesh| sesh.time.strftime("%Y %m %d %H %M")}  
+        return all.sort_by{|sesh| sesh.time.strftime("%Y %m %d %H %M")}.reverse   
     end 
 
     def future_seshes 

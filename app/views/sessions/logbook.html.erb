@@ -52,7 +52,6 @@
 </div> 
 
 
-
 </div>
 <div class="hmsplit right">
 
@@ -61,7 +60,7 @@
 
 <div class="stat">
 <%if @user.most_popular_workouts%>
-<span class="bold"> Most popular: </span> 
+<span class="bold"> Your Favourite Workouts </span> 
 <table style="width:70%; margin-left:15%; margin-right:15%;">
 
   <%@user.most_popular_workouts.each do |wk, num| %>
@@ -87,7 +86,7 @@
 <div class="stat">
 <%if @user.most_popular_workouts%>
 
-<span class="bold"> Most popular: </span> <br/>
+<span class="bold"> Your Favourite Exercises </span> <br/>
 
 
 <table style="width:70%; margin-left:15%; margin-right:15%;">
@@ -108,7 +107,7 @@
 
 <div class="stat">
 <%if @user.most_popular_exercisecats%> 
-<span class="bold"> Most popular: </span> <br/>
+<span class="bold"> Your Favourite Categories </span> <br/>
 
 <table style="width:70%; margin-left:15%; margin-right:15%;">
 

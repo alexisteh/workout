@@ -137,6 +137,11 @@ h1 {
   text-decoration: none; 
 }
 
+.link:hover {
+  background: #E93F33;
+  color: white;
+}
+
  /* styling for logbook stats */
 
 .stat {
@@ -214,6 +219,18 @@ h1 {
 
 .linklogin:hover:after {
   width: 190px;
+}
+
+ /* styling for activate page  */
+
+.actnextlink{
+  float: center;
+  font-family: 'Montserrat Bold'; 
+  color: #4155A2; 
+  text-decoration: none; 
+}
+.actnextlink:hover{
+  color: #E93F33; 
 }
 
  /* styling for new trainings, name and desc  */

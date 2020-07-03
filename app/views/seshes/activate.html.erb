@@ -1,10 +1,11 @@
 
 <div class="box welcome">
-<h1> Activate Page </h1>
+<h1> Activate Workout </h1> 
+<span style="color: white; text-align: center; "><%=@sesh.time.strftime("%B %d %Y at %H:%M")%></span>
 </div> 
 
 <div class="box hmdetails">
-
+<span style="text-align: center; font-size: 40px; color: #4155A2; font-family: 'Montserrat Bold'">
 <!-- Display the countdown timer in an element -->
 <p id="demo"></p>
 
@@ -48,7 +49,9 @@ var x = setInterval(function() {
 }, 1000);
 </script>
 
-<a href=<%"/sesh/#{@sesh.id}/activate"%>> Next Exercise </a>
+</span>
+<span class="actnextlink">
+<a href=<%"/sesh/#{@sesh.id}/activate"%>> Next Exercise </a></span>
 
  </div>
 

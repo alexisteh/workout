@@ -241,12 +241,17 @@ h1 {
  /* styling for activate page  */
 
 .actnextlink{
-  float: center;
+  display: block; 
   font-family: 'Montserrat Bold'; 
-  color: #4155A2; 
-  text-decoration: none; 
 }
-.actnextlink:hover{
+
+.actnextlink a{
+  text-decoration: none; 
+  color: #4155A2; 
+  font-size: 20px;  
+}
+
+.actnextlink a:hover{
   color: #E93F33; 
 }
 
